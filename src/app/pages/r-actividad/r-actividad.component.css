@@ -1,0 +1,19 @@
+.form-control {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .form-select {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .custom-btn {
+    background-color: #46B424;
+    border-color: #46B424;
+  }
+  h1 {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: normal;
+  }

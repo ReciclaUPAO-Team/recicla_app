@@ -1,0 +1,34 @@
+.example-icon.favorite-icon {
+  margin-right: 120px;
+}
+
+.custom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  min-height: 60px; /* Añade un mínimo de altura al contenedor principal */
+}
+
+.custom-toolbar > div {
+  display: flex;
+  align-items: center;
+}
+
+.right-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .custom-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-buttons {
+    margin-top: 1em;
+  }
+}
+

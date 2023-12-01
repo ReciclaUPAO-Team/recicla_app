@@ -1,7 +1,68 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { ListRecompensaComponent } from './pages/list-recompensa/list-recompensa.component';
+import { VHistorialComponent } from './pages/v-historial/v-historial.component';
+import { RActividadComponent } from './pages/r-actividad/r-actividad.component';
+import { CRecompensaComponent } from './pages/c-recompensa/c-recompensa.component';
+import { AuthGuard } from './service/auth-guard.guard';
 
-const routes: Routes = [];
+const routes: Routes = [
+
+  {
+    path:'',
+    component:HomeComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'signup',
+    component:SignupComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'login',
+    component:LoginComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'admin',
+    component:DashboardComponent,
+    pathMatch:'full'
+  },
+  {
+    path: 'user',
+    component: UserDashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'registrar-actividad',
+        component: RActividadComponent
+      }
+      // ... otras rutas de usuarios registrados ...
+    ]
+  },
+  {
+    path:'crear-recompensa',
+    component:CRecompensaComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'ver-historial',
+    component:VHistorialComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'list-recompensa',
+    component:ListRecompensaComponent,
+    pathMatch:'full'
+  },
+
+  
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

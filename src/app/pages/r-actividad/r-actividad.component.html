@@ -1,0 +1,38 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-6 offset-md-3">
+        <form [formGroup]="actividadForm" (ngSubmit)="submitForm()">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre" placeholder="Ingrese su nombre completo" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Cantidad</mat-label>
+            <input type="number" matInput formControlName="cantidad" placeholder="Ingrese la cantidad" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Residuo</mat-label>
+            <input type="number" matInput formControlName="residuo" placeholder="Ingrese residuo" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>ID del Usuario</mat-label>
+            <input type="number" matInput formControlName="usuarioId" placeholder="Ingrese el ID del usuario" required>
+          </mat-form-field>
+
+          <div class="full-width mb-3">
+            <input type="file" id="imagen" accept="image/*" (change)="onFileSelected($event)">
+          </div>
+
+          <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">Registrar</button>
+            <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

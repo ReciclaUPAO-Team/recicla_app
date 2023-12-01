@@ -1,0 +1,31 @@
+.bootstrap-wrapper {
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    padding: 20px; /* Añade padding alrededor del contenido */
+  }
+  
+  .container {
+    padding: 20px; /* Añade padding dentro del contenedor para evitar que los elementos toquen los bordes */
+  }
+  
+  .full-width {
+    width: 100%; /* Ajusta el ancho al 100% para que ocupe todo el espacio disponible */
+    margin-bottom: 15px; /* Espaciado entre campos */
+  }
+  
+  mat-form-field {
+    width: 100%; /* Asegura que los campos de formulario ocupen todo el ancho disponible */
+    padding: 0 15px; /* Añade padding a los lados de cada campo de formulario */
+  }
+  
+  /* Estilos adicionales para botones y posibles mensajes de error o información */
+  button {
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+  
