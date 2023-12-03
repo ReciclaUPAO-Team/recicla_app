@@ -13,4 +13,8 @@ export class ReActividadService {
   public registrarActividad(formData:FormData): Observable<any>{
     return this.httpClient.post(`${baserUrl}/actividad/registro`,formData)
   }
+  public obtenerHistorialPorUsuario(usuarioId: number): Observable<any> {
+    return this.httpClient.get(`${baserUrl}/actividad/historial/usuario/${usuarioId}`);
+  }
+  
 }

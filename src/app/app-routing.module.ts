@@ -10,6 +10,8 @@ import { VHistorialComponent } from './pages/v-historial/v-historial.component';
 import { RActividadComponent } from './pages/r-actividad/r-actividad.component';
 import { CRecompensaComponent } from './pages/c-recompensa/c-recompensa.component';
 import { AuthGuard } from './service/auth-guard.guard';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { VerCatalogoComponent } from './pages/ver-catalogo/ver-catalogo.component';
 
 const routes: Routes = [
 
@@ -41,18 +43,24 @@ const routes: Routes = [
       {
         path: 'registrar-actividad',
         component: RActividadComponent
+      },
+      {
+        path: '',
+        component: WelcomeComponent
+      },
+      {
+        path:'ver-historial',
+        component:VHistorialComponent
+      },
+      {
+        path:'ver-catalogo',
+        component:VerCatalogoComponent
       }
-      // ... otras rutas de usuarios registrados ...
     ]
   },
   {
     path:'crear-recompensa',
     component:CRecompensaComponent,
-    pathMatch:'full'
-  },
-  {
-    path:'ver-historial',
-    component:VHistorialComponent,
     pathMatch:'full'
   },
   {

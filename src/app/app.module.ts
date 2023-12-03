@@ -36,6 +36,10 @@ import { ListRecompensaComponent } from './pages/list-recompensa/list-recompensa
 import { CRecompensaComponent } from './pages/c-recompensa/c-recompensa.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SlidebarComponent } from './components/slidebar/slidebar.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { MatTableModule } from '@angular/material/table';
+import { VerCatalogoComponent } from './pages/ver-catalogo/ver-catalogo.component';
+
 
 
 
@@ -57,6 +61,8 @@ import { SlidebarComponent } from './components/slidebar/slidebar.component';
     ListRecompensaComponent,
     CRecompensaComponent,
     SlidebarComponent,
+    WelcomeComponent,
+    VerCatalogoComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +81,8 @@ import { SlidebarComponent } from './components/slidebar/slidebar.component';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
     
   ],
   providers: [

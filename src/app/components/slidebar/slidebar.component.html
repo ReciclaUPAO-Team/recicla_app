@@ -1,5 +1,21 @@
-<!-- Botón para ir a Registrar Actividad dentro de UserDashboardComponent -->
-<button class="btn btn-danger" routerLink="/user/registrar-actividad" mat-list-item>
-    Registrar
-  </button>
-  
+<mat-card class="mt-3">
+  <mat-action-list>
+    <div mat-subheader> Menu</div>
+    <button mat-list-item>
+      <mat-icon mat-list-icon routerLink="/user">home</mat-icon> Inicio
+    </button>
+
+    <button mat-list-item routerLink="/user/registrar-actividad">
+      <mat-icon mat-list-icon>assignment</mat-icon> Registrar Actividad
+    </button>
+
+    <button mat-list-item routerLink="/user/ver-historial">
+      <mat-icon mat-list-icon>reorder</mat-icon> Historial
+    </button>
+
+    <button mat-list-item routerLink="/user/ver-catalogo">
+      <mat-icon mat-list-icon>redeem</mat-icon> Recompensas
+    </button>
+
+  </mat-action-list>
+</mat-card>

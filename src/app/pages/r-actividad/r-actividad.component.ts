@@ -18,8 +18,8 @@ export class RActividadComponent {
       this.actividadForm = this.fb.group({
           nombre: ['', Validators.required],
           cantidad: ['', Validators.required],
-          residuo: ['', Validators.required],
-          usuarioId: ['', Validators.required]
+          residuo_id: ['', Validators.required],
+          usuario_id: ['', Validators.required]
       });
   }
 
@@ -31,31 +31,28 @@ export class RActividadComponent {
   }
 
   submitForm(): void {
-      if (this.actividadForm.valid && this.imagenArchivo) {
-          const formData = new FormData();
-          formData.append('nombre', this.actividadForm.value.nombre);
-          formData.append('cantidad', this.actividadForm.value.cantidad.toString());
-          formData.append('residuo', this.actividadForm.value.residuo.toString());
-          formData.append('usuarioId', this.actividadForm.value.usuarioId.toString());
-          formData.append('image', this.imagenArchivo, this.imagenArchivo.name);
+    if (this.actividadForm.valid && this.imagenArchivo) {
+        const formData = new FormData();
+        formData.append('nombre', this.actividadForm.value.nombre);
+        formData.append('cantidad', this.actividadForm.value.cantidad.toString());
+        formData.append('residuo_id', this.actividadForm.value.residuo_id.toString());
+        formData.append('usuario_id', this.actividadForm.value.usuario_id.toString());
+        formData.append('image', this.imagenArchivo, this.imagenArchivo.name);
 
-          this.reActividadService.registrarActividad(formData).subscribe(
-            (data) => {
-              console.log(formData);
-              Swal.fire('Actividad registrada','con exito','success');
-            },(error) => {
-              console.log(error);
-              let errorMessage = 'Ha ocurrido un error en el sistema !!';
-              if (error.error && error.error.message) {
-                errorMessage = error.error.message;
-              }
-              this.snack.open(errorMessage, 'Aceptar', {
-                duration: 3000
-              });
+        this.reActividadService.registrarActividad(formData).subscribe(
+          (response) => {
+            console.log(response);
+            Swal.fire('Actividad registrada','con éxito','success');
+          },(error) => {
+            console.log(error);
+            let errorMessage = 'Ha ocurrido un error en el sistema !!';
+            if (error.error && error.error.message) {
+              errorMessage = error.error.message;
             }
-            
-          )
-      }
-  }
-}
-
+            this.snack.open(errorMessage, 'Aceptar', {
+                duration: 3000
+            });
+          }
+        )
+    }
+  }}
