@@ -8,10 +8,13 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { ListRecompensaComponent } from './pages/list-recompensa/list-recompensa.component';
 import { VHistorialComponent } from './pages/v-historial/v-historial.component';
 import { RActividadComponent } from './pages/r-actividad/r-actividad.component';
-import { CRecompensaComponent } from './pages/c-recompensa/c-recompensa.component';
-import { AuthGuard } from './service/auth-guard.guard';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ParticipanteGuard } from './service/auth-guard.guard';
 import { VerCatalogoComponent } from './pages/ver-catalogo/ver-catalogo.component';
+import { AdministradorGuard } from './service/administrador.guard';
+import { RegistrarRecompensaComponent } from './pages/registrar-recompensa/registrar-recompensa.component';
+import { VerRecompensaComponent } from './pages/ver-recompensa/ver-recompensa.component';
+import { RComunidadComponent } from './pages/r-comunidad/r-comunidad.component';
+import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.component';
 
 const routes: Routes = [
 
@@ -33,20 +36,22 @@ const routes: Routes = [
   {
     path:'admin',
     component:DashboardComponent,
-    pathMatch:'full'
+    canActivate: [AdministradorGuard],
+    children: [
+      {
+        path: 'registrar-recompensa',
+        component: RegistrarRecompensaComponent
+      }
+    ]
   },
   {
     path: 'user',
     component: UserDashboardComponent,
-    canActivate: [AuthGuard],
+    canActivate: [ParticipanteGuard],
     children: [
       {
         path: 'registrar-actividad',
         component: RActividadComponent
-      },
-      {
-        path: '',
-        component: WelcomeComponent
       },
       {
         path:'ver-historial',
@@ -55,13 +60,20 @@ const routes: Routes = [
       {
         path:'ver-catalogo',
         component:VerCatalogoComponent
+      },
+      {
+        path:'ver-recompensa',
+        component:VerRecompensaComponent
+      },
+      {
+        path:'crear-comunidad',
+        component:RComunidadComponent
+      },
+      {
+        path:'ver-comunidad',
+        component:VerComunidadComponent
       }
     ]
-  },
-  {
-    path:'crear-recompensa',
-    component:CRecompensaComponent,
-    pathMatch:'full'
   },
   {
     path:'list-recompensa',

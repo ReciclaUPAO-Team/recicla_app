@@ -1,15 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivate } from '@angular/router';
-import {ParticipanteGuard } from './auth-guard.guard';
+import { CanActivateFn } from '@angular/router';
+
+import { AdministradorGuard } from './administrador.guard';
 
 describe('AuthGuard', () => {
-  let guard: ParticipanteGuard;
+  let guard: AdministradorGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ParticipanteGuard]
+      providers: [AdministradorGuard]
     });
-    guard = TestBed.inject(ParticipanteGuard);
+    guard = TestBed.inject(AdministradorGuard);
   });
 
   it('should be created', () => {
@@ -17,3 +18,4 @@ describe('AuthGuard', () => {
   });
 
 });
+

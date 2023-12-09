@@ -2,26 +2,32 @@
   <div class="container">
     <div class="row" style="margin-top: 20px;">
       <div class="col-md-6 offset-md-3">
-        <form [formGroup]="actividadForm" (ngSubmit)="submitForm()">
+        <form [formGroup]="recompensaForm" (ngSubmit)="onSubmit()">
 
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Nombre</mat-label>
-            <input type="text" matInput formControlName="nombre" placeholder="Ingrese su nombre completo" required>
+            <mat-label>Titulo</mat-label>
+            <input type="text" matInput formControlName="titulo" placeholder="Ingrese el título" required>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Cantidad</mat-label>
-            <input type="number" matInput formControlName="cantidad" placeholder="Ingrese la cantidad" required>
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput formControlName="descripcion" placeholder="Ingrese la descripción" required></textarea>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Residuo</mat-label>
-            <input matInput formControlName="nombreResiduo" placeholder="Ingrese residuo" required>
+            <mat-label>Categoria</mat-label>
+            <input matInput formControlName="categoria" placeholder="Ingrese la categoría" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Valor</mat-label>
+            <input type="number" matInput formControlName="valor" placeholder="Ingrese el valor" required>
           </mat-form-field>
 
           <div class="full-width mb-3">
             <input type="file" id="imagen" accept="image/*" (change)="onFileSelected($event)">
           </div>
+          
 
           <div class="container text-center">
             <button type="submit" mat-raised-button color="primary">Registrar</button>

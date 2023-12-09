@@ -34,13 +34,20 @@ export class LoginComponent implements OnInit {
       })
       return;
     }
-    this.loginService.generateToken(this.loginData).subscribe(
-      (data:any) => {
-        console.log(data);
-        this.loginService.loginUser(data.token);
-        
-        this.router.navigate(['user']); 
 
+    // ROLES PARTICIPANTE - ADMINISTRADOR
+    this.loginService.generateToken(this.loginData).subscribe(
+      (data: any) => {
+        this.loginService.loginUser(data.token);
+  
+        const userRole = this.loginService.getUserRole();
+        if (userRole === 'ADMINISTRADOR') {
+          this.router.navigate(['/admin']);
+        } else if (userRole === 'PARTICIPANTE') {
+          this.router.navigate(['/user']);
+        } else {
+          this.router.navigate(['/']);
+        }
       },(error) => {
         console.log(error);
         this.snack.open('Detalles inválidos , vuelva a intentar !!','Aceptar',{

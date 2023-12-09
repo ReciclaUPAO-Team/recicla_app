@@ -39,11 +39,10 @@ import { SlidebarComponent } from './components/slidebar/slidebar.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { MatTableModule } from '@angular/material/table';
 import { VerCatalogoComponent } from './pages/ver-catalogo/ver-catalogo.component';
-
-
-
-
-
+import { RegistrarRecompensaComponent } from './pages/registrar-recompensa/registrar-recompensa.component';
+import { SlidebarAdministradorComponent } from './components/slidebar-administrador/slidebar-administrador.component';
+import { VerRecompensaComponent } from './pages/ver-recompensa/ver-recompensa.component';
+import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.component';
 
 
 @NgModule({
@@ -63,6 +62,11 @@ import { VerCatalogoComponent } from './pages/ver-catalogo/ver-catalogo.componen
     SlidebarComponent,
     WelcomeComponent,
     VerCatalogoComponent,
+    RegistrarRecompensaComponent,
+    SlidebarAdministradorComponent,
+    VerRecompensaComponent,
+    VerComunidadComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -18,8 +18,7 @@ export class RActividadComponent {
       this.actividadForm = this.fb.group({
           nombre: ['', Validators.required],
           cantidad: ['', Validators.required],
-          residuo_id: ['', Validators.required],
-          usuario_id: ['', Validators.required]
+          nombreResiduo: ['', Validators.required],
       });
   }
 
@@ -35,8 +34,7 @@ export class RActividadComponent {
         const formData = new FormData();
         formData.append('nombre', this.actividadForm.value.nombre);
         formData.append('cantidad', this.actividadForm.value.cantidad.toString());
-        formData.append('residuo_id', this.actividadForm.value.residuo_id.toString());
-        formData.append('usuario_id', this.actividadForm.value.usuario_id.toString());
+        formData.append('nombreResiduo',this.actividadForm.value.nombreResiduo);
         formData.append('image', this.imagenArchivo, this.imagenArchivo.name);
 
         this.reActividadService.registrarActividad(formData).subscribe(

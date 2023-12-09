@@ -11,4 +11,5 @@ export class UserService {
   public addUsuario(user:any){
     return this.httpClient.post(`${baserUrl}/usuario/registrar`,user)
   }
+
 }

@@ -1,40 +1,16 @@
-<div class="bootstrap-wrapper mt-5">
-    <div class="container">
-        <div class="row mt20">
-            <div class="col-md-6 offset-md-3">
-                <mat-card>
-                    <div class="container text-center mt-5">
-                        <img src="../../../assets/r-comunidad.png" width="100" height="100">
-                    </div>
+<div class="container mt-4">
+    <form [formGroup]="comunidadForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Nombre de la Comunidad</mat-label>
+        <input matInput formControlName="nombre" placeholder="Ingrese el nombre de la comunidad">
+      </mat-form-field>
   
-                    <h1 class="text-center">Crear comunidad</h1>
-                    
-                    <form>
-                      <div class="mb-1">
-                        <label for="nombre" class="form-label text-light">Nombre de la comunidad:</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre de la comunidad"
-                          required>
-                      </div>
-                      <div class="mb-1">
-                        <label for="descripcion" class="form-label text-light">Descripción:</label>
-                        <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripción de la comunidad"
-                          required></textarea>
-                      </div>
-                      <div class="mb-1">
-                        <label for="fechaCreacion" class="form-label text-light">Fecha de creación:</label>
-                        <input type="date" class="form-control" id="fechaCreacion" required>
-                      </div>
-                      <!-- Puedes agregar más campos según sea necesario -->
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descripcion" placeholder="Descripción de la comunidad"></textarea>
+      </mat-form-field>
   
-                      <div class="container text-center mb-4 mt-4">
-                        <button type="submit" mat-raised-button color="primary">Registrar</button>
-                        <button type="reset" style="margin-left: 20px;" mat-raised-button
-                          color="accent">Limpiar</button>
-                      </div>
-                    </form>
-                </mat-card>
-            </div>
-        </div>
-    </div>
+      <button mat-raised-button color="primary" type="submit">Crear Comunidad</button>
+    </form>
   </div>
   
