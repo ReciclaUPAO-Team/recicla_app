@@ -43,6 +43,15 @@ import { RegistrarRecompensaComponent } from './pages/registrar-recompensa/regis
 import { SlidebarAdministradorComponent } from './components/slidebar-administrador/slidebar-administrador.component';
 import { VerRecompensaComponent } from './pages/ver-recompensa/ver-recompensa.component';
 import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.component';
+import { RResiduoComponent } from './pages/r-residuo/r-residuo.component';
+import { VerResiduoComponent } from './pages/ver-residuo/ver-residuo.component';
+
+import { CommonModule } from '@angular/common';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { VerEstadisticaComponent } from './pages/ver-estadistica/ver-estadistica.component';
+
+import { NgChartsModule } from 'ng2-charts';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 @NgModule({
@@ -66,6 +75,10 @@ import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.compo
     SlidebarAdministradorComponent,
     VerRecompensaComponent,
     VerComunidadComponent,
+    RResiduoComponent,
+    VerResiduoComponent,
+    VerEstadisticaComponent,
+    PerfilComponent,
     
   ],
   imports: [
@@ -86,8 +99,10 @@ import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.compo
     MatListModule,
     MatMenuModule,
     ReactiveFormsModule,
-    MatTableModule
-    
+    MatTableModule,
+    CommonModule,
+    MatPaginatorModule,
+    NgChartsModule,
   ],
   providers: [
     {

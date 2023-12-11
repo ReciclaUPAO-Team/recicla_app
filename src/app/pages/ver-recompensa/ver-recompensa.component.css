@@ -1,0 +1,24 @@
+.recompensa-card {
+    max-width: 300px; /* Ajusta el ancho máximo de la tarjeta */
+    margin: 10px; /* Espacio alrededor de cada tarjeta */
+  }
+  
+  .recompensas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  mat-card-image {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Escala la imagen para cubrir el área sin perder sus proporciones */
+  }
+  
+  .titulo-recompensas {
+    font-size: 24px; /* Tamaño de fuente del título */
+    color: #333; /* Color del texto del título */
+    margin-bottom: 20px; /* Espaciado inferior del título */
+  }
+  
+  

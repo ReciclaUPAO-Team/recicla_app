@@ -24,6 +24,15 @@
       <th mat-header-cell *matHeaderCellDef> Fecha </th>
       <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
     </ng-container>
+    
+    <ng-container matColumnDef="compartir">
+      <th mat-header-cell *matHeaderCellDef> Compartir </th>
+      <td mat-cell *matCellDef="let actividad">
+        <button mat-icon-button (click)="mostrarQR(actividad.id)">
+          <mat-icon>share</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
     <!-- Encabezados de Columnas -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

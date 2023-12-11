@@ -1,7 +1,8 @@
 export interface Comunidad {
-    id: number;        // Opcional si el ID se asigna en el backend
-    nombre: string;
-    descripcion: string;
-    // Aquí puedes añadir otros campos relevantes para tu aplicación
-  }
-  
+  id: number;
+  nombre: string;
+  descripcion: string;
+  creadorId?: number;
+  esCreador?: boolean;
+  yaUnido?: boolean; // Agrega esta propiedad
+}

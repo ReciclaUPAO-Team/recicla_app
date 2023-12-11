@@ -10,11 +10,21 @@ import baserUrl from './helper';
 export class ReActividadService {
   constructor(private httpClient: HttpClient) { }
 
-  public registrarActividad(formData:FormData): Observable<any>{
-    return this.httpClient.post(`${baserUrl}/actividad/registro`,formData)
+  public registrarActividad(formData: FormData): Observable<any> {
+    return this.httpClient.post(`${baserUrl}/actividad/registro`, formData)
   }
-  
+
   public obtenerHistorialPorUsuario(): Observable<any> {
     return this.httpClient.get(`${baserUrl}/actividad/historial`);
-}
+  }
+
+  public obtenerEstadisticasUsuario(): Observable<any> {
+    return this.httpClient.get(`${baserUrl}/actividad/estadisticas`);
+  }
+
+  // En tu servicio ReActividadService
+  obtenerQR(idActividad: number): Observable<Blob> {
+    return this.httpClient.get(`${baserUrl}/actividad/qr/${idActividad}`, { responseType: 'blob' });
+  }
+
 }

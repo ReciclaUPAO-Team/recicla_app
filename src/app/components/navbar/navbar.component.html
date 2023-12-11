@@ -1,19 +1,20 @@
 <mat-toolbar style="color: rgb(249, 255, 249); background-color: #46B424;" class="custom-toolbar">
   <div>
-    <a [routerLink]="'/'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"></a>
-    <span>RECICLA UPAO</span>
+    <button mat-button [routerLink]="'/'">RECICLA UPAO</button>
   </div>
 
   <div class="right-buttons">
-    <!-- Botón Iniciar Sesión/Cerrar Sesión -->
     <button *ngIf="login.isLoggedIn()" mat-button (click)="logout()">Cerrar sesión</button>
-    <button *ngIf="!login.isLoggedIn()" mat-button [matMenuTriggerFor]="menuRegistrar">Iniciar sesión</button>
-   
-    <!-- Menú Iniciar Sesión -->
+    <button *ngIf="!login.isLoggedIn()" mat-button [matMenuTriggerFor]="menuRegistrar">Iniciar sesión</button> 
+
+    
+    <div *ngIf="login.isLoggedIn()">
+      <span>{{ userName }}</span>
+    </div>
+    
     <mat-menu #menuRegistrar="matMenu">
       <button mat-menu-item routerLink="login">Iniciar Sesión</button>
       <button mat-menu-item routerLink="signup">Crear cuenta</button>
     </mat-menu>
-
   </div>
 </mat-toolbar>

@@ -5,4 +5,6 @@ export interface Recompensa {
     categoria: string;
     valor: number;
     imagenPath: string;
-  }
+    id: number;
+    }
+    

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ComunidadService } from 'src/app/service/comunidad.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-r-comunidad',
@@ -26,14 +27,35 @@ export class RComunidadComponent implements OnInit {
     if (this.comunidadForm.valid) {
       this.comunidadService.registrarComunidad(this.comunidadForm.value).subscribe(
         response => {
-          // Aquí manejas la respuesta. Por ejemplo, mostrar un mensaje de éxito
+          // Mostrar mensaje de éxito con SweetAlert2
+          Swal.fire({
+            title: '¡Éxito!',
+            text: 'Comunidad registrada con éxito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
           console.log('Comunidad registrada con éxito:', response);
         },
         error => {
-          // Aquí manejas los errores. Por ejemplo, mostrar un mensaje de error
+          // Mostrar mensaje de error con SweetAlert2
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un problema al registrar la comunidad',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
           console.error('Error al registrar la comunidad:', error);
         }
       );
+    } else {
+      // Mostrar mensaje si el formulario no es válido
+      Swal.fire({
+        title: 'Error',
+        text: 'Por favor completa todos los campos requeridos',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+      });
     }
   }
+  
 }

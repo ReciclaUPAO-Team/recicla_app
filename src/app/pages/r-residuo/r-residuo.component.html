@@ -1,0 +1,37 @@
+<div class="bootstrap-wrapper">
+  <div class="container mt-3 mb-3">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <h2 class="text-center">Formulario de Registro de Residuos</h2>
+
+        <form [formGroup]="residuoForm" (ngSubmit)="submitForm()">
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre" placeholder="Ingrese el nombre del residuo" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion" placeholder="Ingrese la descripción del residuo" required></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Tipo</mat-label>
+            <input type="text" matInput formControlName="tipo" placeholder="Ingrese el tipo de residuo" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Puntos</mat-label>
+            <input type="number" matInput formControlName="puntos" placeholder="Ingrese los puntos asociados al residuo" required>
+          </mat-form-field>
+
+          <div class="container-box text-center">
+            <button type="submit" mat-raised-button color="primary">Registrar</button>
+            <button type="reset" style="margin-left: 60px;" mat-raised-button color="accent">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

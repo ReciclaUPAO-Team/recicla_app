@@ -1,15 +1,15 @@
-  
   .container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin-top: 20px;
   }
   
   /* Estilos para los campos de entrada */
   .mat-form-field {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   
   /* Estilos para los botones */
@@ -29,8 +29,16 @@
     background-color: #FF6F61;
     color: #fff;
   }
+  
+  /* Estilos para el título del formulario */
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
   /* Estilos para el campo de selección de archivos personalizado */
-.custom-file-upload {
+  .custom-file-upload {
     border: 2px solid #46B424;
     display: inline-block;
     padding: 6px 12px;
@@ -45,12 +53,4 @@
     background-color: #46B424;
     color: #fff;
   }
-  
-  /* Estilos para el título del formulario */
-  h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
   

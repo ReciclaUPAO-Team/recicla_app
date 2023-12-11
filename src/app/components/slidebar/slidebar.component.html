@@ -1,29 +1,35 @@
 <mat-card class="mt-3">
   <mat-action-list>
     <div mat-subheader> Menu</div>
-    <button mat-list-item>
-      <mat-icon mat-list-icon routerLink="/user">home</mat-icon> Inicio
+    <button mat-list-item routerLink="/user">
+      <mat-icon mat-list-icon>home</mat-icon> Inicio
     </button>
 
     <button mat-list-item routerLink="/user/registrar-actividad">
-      <mat-icon mat-list-icon>assignment</mat-icon> Registrar Actividad
+      <mat-icon mat-list-icon>add_circle_outline</mat-icon> Registrar Actividad
     </button>
 
     <button mat-list-item routerLink="/user/ver-historial">
-      <mat-icon mat-list-icon>reorder</mat-icon> Historial
+      <mat-icon mat-list-icon>history</mat-icon> Historial
     </button>
 
     <button mat-list-item routerLink="/user/ver-recompensa">
-      <mat-icon mat-list-icon>redeem</mat-icon> Recompensas
+      <mat-icon mat-list-icon>card_giftcard</mat-icon> Recompensas
     </button>
 
     <button mat-list-item routerLink="/user/crear-comunidad">
-      <mat-icon mat-list-icon>redeem</mat-icon> Crear comunidad
+      <mat-icon mat-list-icon>group_add</mat-icon> Crear comunidad
     </button>
 
     <button mat-list-item routerLink="/user/ver-comunidad">
-      <mat-icon mat-list-icon>redeem</mat-icon> Comunidades
+      <mat-icon mat-list-icon>groups</mat-icon> Comunidades
     </button>
-    
+
+    <button mat-list-item routerLink="/user/ver-estadistica">
+      <mat-icon mat-list-icon>bar_chart</mat-icon> Estadísticas
+    </button>
+    <button mat-list-item routerLink="/user/perfil">
+      <mat-icon mat-list-icon>account_circle</mat-icon> Perfil
+    </button>
   </mat-action-list>
 </mat-card>

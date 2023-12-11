@@ -1,3 +1,5 @@
+// En NavbarComponent.ts
+
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../service/login.service';
 
@@ -6,17 +8,20 @@ import { LoginService } from './../../service/login.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
-
+export class NavbarComponent implements OnInit {
   isLoggedIn = false;
-  user: any = null;
+  userName: string = '';
 
-  constructor(public login:LoginService){
-    
+  constructor(public login: LoginService) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.login.isLoggedIn();
+    if (this.isLoggedIn) {
+      this.userName = this.login.getUserName(); // Actualizar para obtener el nombre de usuario
+    }
   }
-  ngOnInit(): void {}
 
-  public logout(){
+  public logout() {
     this.login.logout();
     window.location.reload();
   }

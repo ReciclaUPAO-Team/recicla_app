@@ -1,13 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let recompensa of recompensas">
-      <mat-card>
-        <img mat-card-image [src]="getImagenUrl(recompensa.imagenPath)" alt="Recompensa">
-        <mat-card-content>
-          <h4>{{ recompensa.titulo }}</h4>
-          <p>{{ recompensa.descripcion }}</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
+<h2 class="text-center titulo-recompensas">Tus Recompensas</h2> <!-- Título con clase personalizada -->
+<div class="recompensas-container">
+  <mat-card *ngFor="let recompensa of recompensas" class="recompensa-card">
+    <img mat-card-image *ngIf="recompensa.imagenPath" [src]="'data:image/jpeg;base64,' + recompensa.imagenPath" alt="Imagen de Recompensa">
+    <mat-card-content>
+      <h3>{{ recompensa.titulo }}</h3>
+      <p>{{ recompensa.descripcion }}</p>
+      <p>Categoría: {{ recompensa.categoria }}</p>
+      <p>Valor: {{ recompensa.valor }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
+      <button mat-button *ngIf="!esParticipante" (click)="confirmarEliminacion(recompensa.id)">Eliminar</button>
+      <button mat-button *ngIf="!esParticipante" (click)="editarRecompensa(recompensa)">Modificar</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

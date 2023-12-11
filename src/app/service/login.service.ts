@@ -28,9 +28,9 @@ export class LoginService {
     localStorage.setItem('token', token);
     const decodedToken = jwtDecode(token) as any;
     //console.log(decodedToken); // Depurar para ver la estructura del token
-    localStorage.setItem('role', decodedToken.role); 
+    localStorage.setItem('role', decodedToken.role);
   }
-  
+
   public isLoggedIn() {
     let tokenStr = localStorage.getItem('token');
     if (tokenStr == undefined || tokenStr == '' || tokenStr == null) {
@@ -66,8 +66,47 @@ export class LoginService {
     }
   }
 
-  public getUserRole() {
-    return localStorage.getItem('role');
+  public getUserRole(): string {
+    const token = localStorage.getItem('token');
+    if (!token) return '';
+
+    try {
+      const decodedToken = jwtDecode(token) as any;
+      return decodedToken.role || ''; // Retorna una cadena vacía si 'role' no está presente
+    } catch (error) {
+      console.error('Error al decodificar el token:', error);
+      return '';
+    }
+  }
+  public getUserDetails() {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        return decodedToken;
+      } catch (error) {
+        console.error('Error al decodificar el token:', error);
+        return null;
+      }
+    }
+    return null;
+  }
+  public getUserName(): string {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        return decodedToken.username; // Asegúrate de que 'username' es la clave correcta en el token
+      } catch (error) {
+        console.error('Error al decodificar el token:', error);
+        return '';
+      }
+    }
+    return '';
+  }
+  public getUserId(): number {
+    const userDetails = this.getUserDetails();
+    return userDetails ? userDetails.id : 0; // Asegúrate de que 'id' es la propiedad correcta en el token
   }
 
 }

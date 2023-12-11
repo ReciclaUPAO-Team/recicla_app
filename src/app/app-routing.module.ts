@@ -15,9 +15,12 @@ import { RegistrarRecompensaComponent } from './pages/registrar-recompensa/regis
 import { VerRecompensaComponent } from './pages/ver-recompensa/ver-recompensa.component';
 import { RComunidadComponent } from './pages/r-comunidad/r-comunidad.component';
 import { VerComunidadComponent } from './pages/ver-comunidad/ver-comunidad.component';
+import { RResiduoComponent } from './pages/r-residuo/r-residuo.component';
+import { VerResiduoComponent } from './pages/ver-residuo/ver-residuo.component';
+import { VerEstadisticaComponent } from './pages/ver-estadistica/ver-estadistica.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 const routes: Routes = [
-
   {
     path:'',
     component:HomeComponent,
@@ -41,6 +44,22 @@ const routes: Routes = [
       {
         path: 'registrar-recompensa',
         component: RegistrarRecompensaComponent
+      },
+      {
+        path: 'registrar-residuo',
+        component: RResiduoComponent
+      },
+      {
+        path: 'ver-residuo',
+        component: VerResiduoComponent
+      },
+      {
+        path:'ver-recompensa',
+        component:VerRecompensaComponent
+      },
+      {
+        path:'perfil',
+        component:PerfilComponent
       }
     ]
   },
@@ -72,8 +91,17 @@ const routes: Routes = [
       {
         path:'ver-comunidad',
         component:VerComunidadComponent
-      }
+      },
+      {
+        path:'ver-estadistica',
+        component:VerEstadisticaComponent
+      },
+      {
+        path:'perfil',
+        component:PerfilComponent
+      },
     ]
+
   },
   {
     path:'list-recompensa',

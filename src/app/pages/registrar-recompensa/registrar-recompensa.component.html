@@ -1,7 +1,9 @@
 <div class="bootstrap-wrapper">
-  <div class="container">
-    <div class="row" style="margin-top: 20px;">
-      <div class="col-md-6 offset-md-3">
+  <div class="container mt-3 mb-3">
+    <div class="row justify-content-center" style="margin-top: 20px;">
+      <div class="col-9">
+        <h2 class="text-center">Formulario de Registro de Recompensas</h2> 
+
         <form [formGroup]="recompensaForm" (ngSubmit)="onSubmit()">
 
           <mat-form-field class="full-width" appearance="outline">
@@ -10,12 +12,12 @@
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Descripcion</mat-label>
+            <mat-label>Descripción</mat-label>
             <textarea matInput formControlName="descripcion" placeholder="Ingrese la descripción" required></textarea>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Categoria</mat-label>
+            <mat-label>Categoría</mat-label>
             <input matInput formControlName="categoria" placeholder="Ingrese la categoría" required>
           </mat-form-field>
 
@@ -25,13 +27,15 @@
           </mat-form-field>
 
           <div class="full-width mb-3">
-            <input type="file" id="imagen" accept="image/*" (change)="onFileSelected($event)">
+            <label class="custom-file-upload">
+              <input type="file" (change)="onFileSelected($event)">
+              <i class="fa fa-cloud-upload"></i> Seleccionar archivo
+            </label>
           </div>
-          
 
-          <div class="container text-center">
+          <div class="container-box text-center">
             <button type="submit" mat-raised-button color="primary">Registrar</button>
-            <button type="reset" style="margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+            <button type="reset" style="margin-left: 60px;" mat-raised-button color="accent">Limpiar</button>
           </div>
         </form>
       </div>
