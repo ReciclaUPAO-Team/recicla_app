@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Comunidad } from '../Modelo/comunidad';
 import baserUrl from './helper'; // Asegúrate de que la ruta sea correcta
 import { map } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,8 @@ public unirseComunidad(idComunidad: number): Observable<any> {
 
 private obtenerToken(): string {
   // Aquí obtienes el token JWT de donde lo tengas almacenado, por ejemplo localStorage
-  return localStorage.getItem('token');
+  return localStorage.getItem('token') || '';
+
 }
 
 
