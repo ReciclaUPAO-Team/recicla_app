@@ -1,0 +1,165 @@
+body {
+    background: #161616;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cuerpo {
+    background-color: #f4811f;
+    padding: 20px; /* Espacio uniforme alrededor del contenido */
+    margin: auto; /* Centra el cuadro naranja en la página */
+    max-width: 100%; /* Ancho del cuadro naranja */
+    box-sizing: border-box;
+    color: white; /* Color de texto para contenido dentro del cuadro naranja */
+    font-size: 1.4em; /* Aumenta el tamaño del texto dentro del cuadro naranja */
+}
+.general {
+    background-image: url('../../../assets/papel-arrugado.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.welcome-section {
+    padding: 40px 20px; /* Espaciado interno dentro del cuadro azul */
+    margin: 100px auto; /* Margen superior e inferior igual para espaciado uniforme */
+    max-width: calc(100% - 40px); /* Resta el doble del padding lateral de .cuerpo para mantener el espacio */
+    box-sizing: border-box;
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1.2em; /* Tamaño de fuente para los párrafos dentro de .welcome-section */
+}
+.welcome-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em; /* Tamaño de fuente más grande para el título */
+    margin-bottom: 20px;
+    font-weight: bold; /* Letra más gruesa para el título */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra suave para dar profundidad */
+}
+
+.welcome-message {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: normal; /* Puedes ajustar el peso del texto si lo necesitas */
+}
+
+
+.container {
+    width: 100%;
+    height: auto; /* Ajuste a contenido */
+}
+
+.carousel-caption {
+    text-align: center;
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.titulo-t {
+    color: white;
+    font-size: 45px;
+    font-weight: bold; /* Texto más grueso para el título */
+}
+
+.lead {
+    color: #aaa;
+}
+
+.wrapper {
+    margin: 10vh;
+}
+
+.card {
+    border: none;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+    border-radius: 20px;
+    min-height: 450px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes para vista móvil */
+@media (max-width: 768px) {
+    .card {
+        min-height: 350px;
+    }
+    .cuerpo {
+        padding: 20px; /* Menos espacio en móviles */
+    }
+    .titulo-t {
+        font-size: 2em; /* Más pequeño en móviles */
+    }
+}
+
+@media (max-width: 420px) {
+    .card {
+        min-height: 300px;
+    }
+}
+
+/* ... */
+
+/* Estilos para la sección de beneficios */
+.beneficio {
+    background-color: #003D76;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.benefit-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.benefit-item {
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+    margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: bold; /* Hace el subtítulo más grueso */
+}
+
+.circle-box {
+    background-color: white;
+    border-radius: 50%;
+    padding: 15px;
+    width: 100%;
+    max-width: 120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.circle-box img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/* Ajustes para dispositivos móviles de la sección de beneficios */
+@media (max-width: 768px) {
+    .beneficio {
+        padding: 20px;
+    }
+    .benefit-section {
+        gap: 10px;
+    }
+    .benefit-item h3 {
+        font-size: 1em;
+    }
+}
+
+/* Si tienes más estilos, continúa agregándolos aquí */
