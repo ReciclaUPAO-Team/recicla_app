@@ -1,5 +1,12 @@
 # ReciclaUpao
 
+# Usuario Participante:
+- username: jmaquis
+- contraseña: 246623Jhoel
+# Usuario Administrador:
+- username: jhoneiro
+- contraseña: 246623Maqui
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
 ## Development server
