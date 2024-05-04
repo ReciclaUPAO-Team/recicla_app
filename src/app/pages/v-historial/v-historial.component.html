@@ -13,11 +13,20 @@
       <td mat-cell *matCellDef="let actividad"> {{ actividad.cantidad }} </td>
     </ng-container>
 
-    <!-- Columna Residuo (Asumiendo que es un objeto con una propiedad 'nombre') -->
+  
     <ng-container matColumnDef="residuo">
       <th mat-header-cell *matHeaderCellDef> Residuo </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.nombre }} </td>
+      <td mat-cell *matCellDef="let actividad"> {{ actividad.residuoNombre }} </td>
     </ng-container>
+
+    <ng-container matColumnDef="imagen">
+      <th mat-header-cell *matHeaderCellDef> Imagen </th>
+      <td mat-cell *matCellDef="let actividad"> 
+        <img [src]="'data:image/jpeg;base64,' + actividad.imagen" alt="Imagen de la actividad" class="actividad-imagen">
+      </td>
+    </ng-container>
+    
+    
 
     <!-- Columna Fecha (Formato de fecha) -->
     <ng-container matColumnDef="fecha">

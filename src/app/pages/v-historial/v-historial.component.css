@@ -27,3 +27,10 @@
     border-color: #46B424;
   }
   
+  .actividad-imagen {
+    width: 100px; /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+    height: 100px; /* Altura fija para todas las imágenes */
+    margin: 5px;
+    object-fit: cover; /* Escala la imagen para cubrir el área sin perder sus proporciones */
+  }
+  

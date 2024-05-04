@@ -33,15 +33,17 @@ export class VerRecompensaComponent implements OnInit {
   canjearRecompensa(nombreRecompensa: string): void {
     this.recompensaService.canjearRecompensa(nombreRecompensa).subscribe(
       response => {
+        console.log(response); // Para depuración
         // Muestra un mensaje de éxito
         Swal.fire({
           title: '¡Éxito!',
-          text: 'Recompensa canjeada con éxito',
+          text: response.message, // Usa el mensaje de la respuesta
           icon: 'success',
           confirmButtonText: 'Ok'
         });
       },
       error => {
+        console.log(error); // Para depuración
         // Muestra un mensaje de error
         Swal.fire({
           title: 'Error',
@@ -52,6 +54,7 @@ export class VerRecompensaComponent implements OnInit {
       }
     );
   }
+  
   eliminarRecompensa(id: number): void {
     this.recompensaService.eliminarRecompensa(id).subscribe(
       response => {

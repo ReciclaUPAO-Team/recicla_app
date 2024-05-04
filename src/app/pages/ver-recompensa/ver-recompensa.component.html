@@ -9,7 +9,7 @@
       <p>Valor: {{ recompensa.valor }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
+      <button mat-button *ngIf="esParticipante" (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
       <button mat-button *ngIf="!esParticipante" (click)="confirmarEliminacion(recompensa.id)">Eliminar</button>
       <button mat-button *ngIf="!esParticipante" (click)="editarRecompensa(recompensa)">Modificar</button>
     </mat-card-actions>

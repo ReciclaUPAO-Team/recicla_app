@@ -35,12 +35,13 @@ export class RActividadComponent {
         formData.append('nombre', this.actividadForm.value.nombre);
         formData.append('cantidad', this.actividadForm.value.cantidad.toString());
         formData.append('nombreResiduo',this.actividadForm.value.nombreResiduo);
-        formData.append('image', this.imagenArchivo, this.imagenArchivo.name);
+        formData.append('image', this.imagenArchivo);
 
         this.reActividadService.registrarActividad(formData).subscribe(
           (response) => {
             console.log(response);
             Swal.fire('Actividad registrada','con éxito','success');
+            console.log(formData)
           },(error) => {
             console.log(error);
             let errorMessage = 'Ha ocurrido un error en el sistema !!';
