@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class VHistorialComponent implements OnInit {
   actividades: any[] = [];
-  displayedColumns: string[] = ['nombre', 'cantidad', 'residuo', 'fecha', 'imagen', 'compartir'];
+  displayedColumns: string[] = ['nombre', 'cantidad', 'residuo', 'puntosGanados','fecha', 'imagen', 'compartir'];
 
   constructor(private reActividadService: ReActividadService) { }
 

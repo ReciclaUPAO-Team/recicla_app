@@ -19,6 +19,16 @@
       <td mat-cell *matCellDef="let actividad"> {{ actividad.residuoNombre }} </td>
     </ng-container>
 
+    <ng-container matColumnDef="puntosGanados">
+      <th mat-header-cell *matHeaderCellDef> Puntos Ganados </th>
+      <td mat-cell *matCellDef="let actividad"> {{ actividad.puntosGanados }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
+    </ng-container>
+
     <ng-container matColumnDef="imagen">
       <th mat-header-cell *matHeaderCellDef> Imagen </th>
       <td mat-cell *matCellDef="let actividad"> 
@@ -26,13 +36,8 @@
       </td>
     </ng-container>
     
-    
-
     <!-- Columna Fecha (Formato de fecha) -->
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef> Fecha </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
-    </ng-container>
+
     
     <ng-container matColumnDef="compartir">
       <th mat-header-cell *matHeaderCellDef> Compartir </th>
