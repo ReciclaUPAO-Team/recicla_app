@@ -51,7 +51,7 @@ export class RegistrarRecompensaComponent implements OnInit {
         },
         (error) => {
           console.error('Error al registrar la recompensa:', error);
-          Swal.fire('Error', 'Ocurrió un error al registrar la recompensa', 'error');
+          Swal.fire('Error', 'La imagen excede los límites de tamaño (5mb)', 'error');
          
         }
       );

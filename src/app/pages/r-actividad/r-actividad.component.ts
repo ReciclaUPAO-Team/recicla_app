@@ -40,7 +40,7 @@ export class RActividadComponent {
         this.reActividadService.registrarActividad(formData).subscribe(
           (response) => {
             console.log(response);
-            Swal.fire('Actividad registrada','con éxito','success');
+            Swal.fire('Éxito','Actividad registrada con éxito','success');
             console.log(formData)
           },(error) => {
             console.log(error);
