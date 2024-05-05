@@ -9,11 +9,12 @@
     justify-content: space-around;
   }
   
-  mat-card-image {
-    width: 100%; /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
-    height: 200px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Escala la imagen para cubrir el área sin perder sus proporciones */
-  }
+  img[mat-card-image] {
+    width: 300px;  /* Ancho fijo */
+    height: 300px; /* Altura fija */
+    object-fit: cover; /* Para mantener las proporciones de la imagen */
+}
+
   
   .titulo-recompensas {
     font-size: 24px; /* Tamaño de fuente del título */

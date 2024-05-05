@@ -11,9 +11,10 @@ import { Recompensa } from '../Modelo/recompensa';
 export class RRecompensaService {
   constructor(private httpClient: HttpClient) { }
 
-  public registrarRecompensa(recompensaData: any): Observable<any> {
-    return this.httpClient.post(`${baserUrl}/recompensa/crear`, recompensaData);
+  public registrarRecompensa(formData: FormData): Observable<any> {
+    return this.httpClient.post(`${baserUrl}/recompensa/crear`, formData);
   }
+
   
   public listarRecompensa(): Observable<Recompensa> {
     return this.httpClient.get<Recompensa>(`${baserUrl}/recompensa/catalogo`);

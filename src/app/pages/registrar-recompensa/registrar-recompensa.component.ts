@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class RegistrarRecompensaComponent implements OnInit {
   recompensaForm: FormGroup;
-  imagenBase64: string = '';
+  imagenArchivo: File | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -28,36 +28,31 @@ export class RegistrarRecompensaComponent implements OnInit {
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        // Asegúrate de extraer solo la parte base64 de la cadena
-        this.imagenBase64 = (reader.result as string).split(',')[1];
-      };
-
-      reader.readAsDataURL(file);
+    if (input.files && input.files.length) {
+        this.imagenArchivo = input.files[0];
     }
-  }
+}
 
   onSubmit(): void {
-    if (this.recompensaForm.valid && this.imagenBase64) {
-      const recompensaData = {
-        titulo: this.recompensaForm.value.titulo,
-        descripcion: this.recompensaForm.value.descripcion,
-        categoria: this.recompensaForm.value.categoria,
-        valor: this.recompensaForm.value.valor,
-        imagenPath: this.imagenBase64
-      };
+    if (this.recompensaForm.valid && this.imagenArchivo) {
 
-      this.recompensaService.registrarRecompensa(recompensaData).subscribe(
+      const formData = new FormData();
+        formData.append('titulo', this.recompensaForm.value.titulo);
+        formData.append('descripcion', this.recompensaForm.value.descripcion);
+        formData.append('categoria',this.recompensaForm.value.categoria);
+        formData.append('valor', this.recompensaForm.value.valor);
+        formData.append('imagenPath', this.imagenArchivo);
+
+
+      this.recompensaService.registrarRecompensa(formData).subscribe(
         (response) => {
           Swal.fire('Éxito', 'Recompensa registrada con éxito', 'success');
+        
         },
         (error) => {
           console.error('Error al registrar la recompensa:', error);
           Swal.fire('Error', 'Ocurrió un error al registrar la recompensa', 'error');
+         
         }
       );
     } else {
