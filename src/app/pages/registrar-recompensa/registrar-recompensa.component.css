@@ -1,56 +1,51 @@
-  
-  .container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  /* Estilos para los campos de entrada */
-  .mat-form-field {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  /* Estilos para los botones */
-  button[type="submit"],
-  button[type="reset"] {
-    margin-top: 20px;
-  }
-  
-  /* Estilos para el botón Registrar */
-  button[type="submit"] {
-    background-color: #46B424;
-    color: #fff;
-  }
-  
-  /* Estilos para el botón Limpiar */
-  button[type="reset"] {
-    background-color: #FF6F61;
-    color: #fff;
-  }
-  /* Estilos para el campo de selección de archivos personalizado */
+.container {
+  background-color: #ffffffda;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 15px;
+}
+
+/* Estilos para los campos de entrada */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el botón Registrar */
+button[type="submit"] {
+  background-color: #fdfffc;
+  color: #179CBB;
+}
+
+/* Estilos para el botón Limpiar */
+button[type="reset"] {
+  background-color: #ffffff;
+  color: #FF6F61;
+  margin-left: 60px;
+}
+/* Estilos para el campo de selección de archivos personalizado */
 .custom-file-upload {
-    border: 2px solid #46B424;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    background-color: #fff;
-    color: #46B424;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .custom-file-upload:hover {
-    background-color: #46B424;
-    color: #fff;
-  }
-  
-  /* Estilos para el título del formulario */
-  h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
+  border: 2px dashed #49BFA7;
+  display: block; /* Cambiado de inline-block para permitir centrado */
+  width: fit-content; /* Asegura que el tamaño se ajuste al contenido */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+  padding: 12px;
+  cursor: pointer;
+  background-color: #49BFA7;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-file-upload:hover {
+  background-color: #ffffff;
+  color: #49BFA7;
+}
+
+/* Estilos para el título del formulario */
+h2 {
+  font-size: 24px;
+  color: #096754;
+}
   

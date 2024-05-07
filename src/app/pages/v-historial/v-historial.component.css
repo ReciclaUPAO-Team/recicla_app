@@ -1,36 +1,47 @@
-.custom-box {
-    border-radius: 24px;
-    border: 0px solid #000;
-    background: #CCE5FF;
-    text-align: center;
-    max-width: 700px; /* Puedes ajustar el valor según tus necesidades */
-    margin: 0 auto;
-    padding: 15px;
-  }
-  
-  h1 {
-    color: black;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 800;
-    line-height: normal;
-  }
-  .form-text{
-    color: black;
-    text-align: center;
-    font-size: 25px;
-    font-weight: 800;
-  
-  }
-  .custom-btn {
-    background-color: #46B424;
-    border-color: #46B424;
-  }
-  
-  .actividad-imagen {
-    width: 100px; /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
-    height: 100px; /* Altura fija para todas las imágenes */
-    margin: 5px;
-    object-fit: cover; /* Escala la imagen para cubrir el área sin perder sus proporciones */
-  }
-  
+.container {
+  background-color: #ffffffda;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+h2 {
+  font-size: 24px;
+  color: #096754;
+}
+
+.actividad-imagen {
+  width: 100px;
+  /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+  height: 100px;
+  /* Altura fija para todas las imágenes */
+  margin: 5px;
+  object-fit: cover;
+  /* Escala la imagen para cubrir el área sin perder sus proporciones */
+
+  border-radius: 50%;
+}
+
+.tabla{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+th{
+  color: #096754;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+
+}
+td{
+  text-align: center;
+}
+i{
+  color: #096754;
+}

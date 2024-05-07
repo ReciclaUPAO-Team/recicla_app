@@ -1,26 +1,32 @@
-<div *ngIf="isLoggedIn">
-    <h2 class="text-center mt-3">Perfil de Usuario</h2>
-    <table mat-table [dataSource]="createUserData()" class="mat-elevation-z8">
-  
-      <!-- Columnas de la tabla -->
-      <ng-container matColumnDef="field">
-        <th mat-header-cell *matHeaderCellDef> Campo </th>
-        <td mat-cell *matCellDef="let element"> {{element.field}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="value">
-        <th mat-header-cell *matHeaderCellDef> Valor </th>
-        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
-      </ng-container>
-  
-      <!-- Encabezado de la tabla -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <!-- Filas de la tabla -->
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">Mi Perfil </h2> 
+      <div *ngIf="isLoggedIn">
+        <table mat-table [dataSource]="createUserData()" class="tabla">
+
+          <!-- Columnas de la tabla -->
+          <ng-container matColumnDef="field">
+            <th mat-header-cell *matHeaderCellDef> Campo </th>
+            <td class="bold" mat-cell *matCellDef="let element"> {{element.field}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="value">
+            <th mat-header-cell *matHeaderCellDef> Valor </th>
+            <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+          </ng-container>
+
+          <!-- Encabezado de la tabla -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <!-- Filas de la tabla -->
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <div *ngIf="!isLoggedIn">
+        <p>Por favor, inicia sesión para ver esta página.</p>
+      </div>
+    </div>
   </div>
-  
-  <div *ngIf="!isLoggedIn">
-    <p>Por favor, inicia sesión para ver esta página.</p>
-  </div>
+</div>}
   

@@ -1,26 +1,30 @@
-<div class="container mt-4">
+<div class="container">
+  <h2 class="text-center">Residuos</h2>
+    
+  
+    <div class="cards-container">
+      <mat-card *ngFor="let residuo of residuos " class="residuo-card ">
+        <mat-card-header>
+          <mat-card-title>{{ residuo.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ residuo.descripcion }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="juntos">
+            <p><span class="bold">Tipo: </span>{{ residuo.tipo }}</p>
+            <p><span class="bold">Puntos: </span> {{ residuo.puntos }}</p>
+          </div>
+          <div class="container-box text-center">
+            <button type="submit" mat-raised-button (click)="actualizarResiduo(residuo)">Actualizar</button>
+          <button type="reset" mat-raised-button (click)="eliminarResiduo(residuo.id)">Eliminar</button>
+          </div>
+          
+        </mat-card-content>
+      </mat-card>
+    </div>
     <mat-paginator [length]="totalElements"
                    [pageIndex]="currentPage"
                    [pageSize]="10"
                    [pageSizeOptions]="[5, 10, 25, 100]"
                    (page)="cargarResiduos($event)">
     </mat-paginator>
-  
-    <div class="cards-container mt-2">
-      <mat-card *ngFor="let residuo of residuos " class="residuo-card mt-4">
-        <mat-card-header>
-          <mat-card-title>{{ residuo.nombre }}</mat-card-title>
-          <mat-card-subtitle>{{ residuo.tipo }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ residuo.descripcion }}</p>
-          <p>Puntos: {{ residuo.puntos }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="actualizarResiduo(residuo)">Actualizar</button>
-          <button mat-button (click)="eliminarResiduo(residuo.id)">Eliminar</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
   </div>
-  

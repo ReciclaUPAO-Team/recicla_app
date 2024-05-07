@@ -1,3 +1,11 @@
+.container {
+  background-color: #ffffffda;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 15px;
+}
+  
 .form-control {
     width: 80%;
     margin: 0 auto;
@@ -10,10 +18,45 @@
     background-color: #46B424;
     border-color: #46B424;
   }
-  h1 {
-    color: black;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 800;
-    line-height: normal;
-  }
+
+  
+ /* Estilos para el título del formulario */
+ h2 {
+  font-size: 24px;
+  color: #096754;
+}
+
+
+/* boton para subir */
+.custom-file-upload {
+  border: 2px dashed #49BFA7;
+  display: block; /* Cambiado de inline-block para permitir centrado */
+  width: fit-content; /* Asegura que el tamaño se ajuste al contenido */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+  padding: 12px;
+  cursor: pointer;
+  background-color: #49BFA7;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-file-upload:hover {
+  background-color: #ffffff;
+  color: #49BFA7;
+}
+
+
+
+/* Estilos para los botón */
+button[type="submit"] {
+  background-color: #fdfffc;
+  color: #179CBB;
+}
+
+
+button[type="reset"] {
+  background-color: #ffffff;
+  color: #FF6F61;
+  margin-left: 60px;
+}

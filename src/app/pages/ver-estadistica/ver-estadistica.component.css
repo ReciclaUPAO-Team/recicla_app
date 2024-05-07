@@ -1,3 +1,19 @@
+.container {
+  background-color: #ffffffda;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h2 {
+  font-size: 24px;
+  color: #096754;
+}
+
+
 .grafico-contenedor {
     width: 50%; /* Ajusta esto según tu preferencia */
     height: auto;
@@ -40,4 +56,3 @@
   .pie-chart {
     width: 100%; /* El gráfico ocupa todo el ancho de su contenedor */
   }
-  

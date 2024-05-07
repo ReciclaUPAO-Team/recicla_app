@@ -1,13 +1,42 @@
-.mat-elevation-z8 {
-    margin: 10px;
-    overflow: hidden;
-  }
-  
-  .mat-header-cell, .mat-cell {
-    padding: 8px;
-  }
-  
-  th.mat-header-cell {
-    font-weight: bold;
-  }
+.container {
+  background-color: #ffffffda;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+h2 {
+  font-size: 24px;
+  color: #096754;
+}
+
+
+.tabla{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+th{
+  color: #096754;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+
+}
+td{
+  text-align: center;
+}
+i{
+  color: #096754;
+}
+
+.bold{
+  font-weight: bold; /* Aplica negrita */
+  color: #096754;
+}
   

@@ -1,24 +1,22 @@
-<mat-card class="mt-3">
+<div class="sidebar">
   <mat-action-list>
-    <div mat-subheader>Menu</div>
-    <button mat-list-item routerLink="/admin">
-      <mat-icon mat-list-icon>dashboard</mat-icon> Inicio
+    <div class="sidebar-title">Menu</div>
+
+
+    <button routerLink="/admin/registrar-recompensa">
+      <i class="fa-solid fa-gift"></i> Agregar Recompensa
     </button>
 
-    <button mat-list-item routerLink="/admin/registrar-recompensa">
-      <mat-icon mat-list-icon>card_giftcard</mat-icon> Agregar Recompensa
-    </button>
-    
-    <button mat-list-item routerLink="/admin/registrar-residuo">
-      <mat-icon mat-list-icon>delete_outline</mat-icon> Registrar Residuo
+    <button routerLink="/admin/registrar-residuo">
+      <i class="fa-solid fa-trash"></i> Registrar Residuo
     </button>
 
-    <button mat-list-item routerLink="/admin/ver-recompensa">
-      <mat-icon mat-list-icon>visibility</mat-icon> Ver Recompensa
+    <button routerLink="/admin/ver-recompensa">
+      <i class="fa-solid fa-eye"></i> Ver Recompensa
     </button>
-    
-    <button mat-list-item routerLink="/admin/ver-residuo">
-      <mat-icon mat-list-icon>visibility</mat-icon> Ver Residuo
+
+    <button routerLink="/admin/ver-residuo">
+      <i class="fa-regular fa-eye"></i> Ver Residuo
     </button>
   </mat-action-list>
-</mat-card>
+</div>

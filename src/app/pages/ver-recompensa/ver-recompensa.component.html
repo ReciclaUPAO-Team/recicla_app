@@ -1,17 +1,29 @@
-<h2 class="text-center titulo-recompensas">Tus Recompensas</h2> <!-- Título con clase personalizada -->
-<div class="recompensas-container">
-  <mat-card *ngFor="let recompensa of recompensas" class="recompensa-card">
-    <img mat-card-image *ngIf="recompensa.imagenPath" [src]="'data:image/jpeg;base64,' + recompensa.imagenPath" alt="Imagen de Recompensa">
-    <mat-card-content>
-      <h3>{{ recompensa.titulo }}</h3>
-      <p>{{ recompensa.descripcion }}</p>
-      <p>Categoría: {{ recompensa.categoria }}</p>
-      <p>Valor: {{ recompensa.valor }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button *ngIf="esParticipante" (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
-      <button mat-button *ngIf="!esParticipante" (click)="confirmarEliminacion(recompensa.id)">Eliminar</button>
-      <button mat-button *ngIf="!esParticipante" (click)="editarRecompensa(recompensa)">Modificar</button>
-    </mat-card-actions>
-  </mat-card>
+<div class="boostrap-wrapper">
+  <div class="container">
+    <h2 class="text-center">Recompensas Disponibles Para Canjear </h2> <!-- Título con clase personalizada -->
+    <div class="recompensas-container">
+      <mat-card *ngFor="let recompensa of recompensas" class="recompensa-card">
+        <img mat-card-image *ngIf="recompensa.imagenPath" [src]="'data:image/jpeg;base64,' + recompensa.imagenPath"
+          alt="Imagen de Recompensa">
+
+        <mat-card-content>
+          
+          <h2>{{ recompensa.titulo }}</h2>
+          <p>{{ recompensa.descripcion }}</p>
+          <div class="juntos">
+            <p><span class="bold">Categoría:</span> {{ recompensa.categoria }}</p>
+            <p><span class="bold">Valor:</span> {{ recompensa.valor }}</p>
+          </div>
+          
+        </mat-card-content>
+
+        <div class="container-box text-center" >
+          <button type="submit" mat-raised-button  *ngIf="esParticipante" (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
+          <button type="submit" mat-raised-button *ngIf="!esParticipante" (click)="editarRecompensa(recompensa)" ><i class="fa-solid fa-pen-to-square"></i></button>
+          <button type="reset" mat-raised-button *ngIf="!esParticipante" (click)="confirmarEliminacion(recompensa.id)"><i class="fa-solid fa-trash"></i></button>
+        </div>
+
+      </mat-card>
+    </div>
+  </div>
 </div>

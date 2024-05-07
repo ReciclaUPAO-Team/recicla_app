@@ -1,28 +1,28 @@
-<div class="recompensas-container">
-    <div class="pie-chart-container">
-      <div class="pie-chart-box">
-        <div class="pie-chart-title">Actividades Registradas</div>
-        <canvas baseChart class="pie-chart"
-                [data]="pieChartDataActividades"
-                [type]="pieChartType">
-        </canvas>
-      </div>
-  
-      <div class="pie-chart-box">
-        <div class="pie-chart-title">Puntos por Actividades</div>
-        <canvas baseChart class="pie-chart"
-                [data]="pieChartDataPuntosActividad"
-                [type]="pieChartType">
-        </canvas>
-      </div>
-  
-      <div class="pie-chart-box">
-        <div class="pie-chart-title">Puntos del Usuario</div>
-        <canvas baseChart class="pie-chart"
-                [data]="pieChartDataPuntosUsuario"
-                [type]="pieChartType">
-        </canvas>
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">Estadisticas Del Usuario</h2>
+      <div class="recompensas-container">
+        <div class="pie-chart-container">
+          <div class="pie-chart-box">
+            <div class="pie-chart-title">Actividades Registradas</div>
+            <canvas baseChart class="pie-chart" [data]="pieChartDataActividades" [type]="pieChartType">
+            </canvas>
+          </div>
+      
+          <div class="pie-chart-box">
+            <div class="pie-chart-title">Puntos por Actividades</div>
+            <canvas baseChart class="pie-chart" [data]="pieChartDataPuntosActividad" [type]="pieChartType">
+            </canvas>
+          </div>
+      
+          <div class="pie-chart-box">
+            <div class="pie-chart-title">Puntos del Usuario</div>
+            <canvas baseChart class="pie-chart" [data]="pieChartDataPuntosUsuario" [type]="pieChartType">
+            </canvas>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
+</div>

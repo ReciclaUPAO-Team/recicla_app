@@ -1,56 +1,59 @@
-<div class="mat-elevation-z8 mt-3 mb-3">
-  <table mat-table [dataSource]="actividades" class="mat-elevation-z8">
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row ">
+      <h2 class="text-center">Historial De Actividad Reciente</h2> 
+        <table mat-table [dataSource]="actividades" class="tabla">
 
-    <!-- Columna Nombre -->
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.nombre }} </td>
-    </ng-container>
+          <!-- Columna Nombre -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let actividad"> {{ actividad.nombre }} </td>
+          </ng-container>
+      
+          <!-- Columna Cantidad -->
+          <ng-container matColumnDef="cantidad">
+            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+            <td mat-cell *matCellDef="let actividad"> {{ actividad.cantidad }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="residuo">
+            <th mat-header-cell *matHeaderCellDef> Residuo </th>
+            <td mat-cell *matCellDef="let actividad"> {{ actividad.residuoNombre }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="puntosGanados">
+            <th mat-header-cell *matHeaderCellDef> Puntos Ganados </th>
+            <td mat-cell *matCellDef="let actividad"> {{ actividad.puntosGanados }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="imagen">
+            <th mat-header-cell *matHeaderCellDef> Imagen </th>
+            <td mat-cell *matCellDef="let actividad">
+              <img [src]="'data:image/jpeg;base64,' + actividad.imagen" alt="Imagen de la actividad" class="actividad-imagen">
+            </td>
+          </ng-container>
+      
+          <!-- Columna Fecha (Formato de fecha) -->
+          <ng-container matColumnDef="compartir">
+            <th mat-header-cell *matHeaderCellDef> Compartir </th>
+            <td mat-cell *matCellDef="let actividad">
+              <button mat-icon-button (click)="mostrarQR(actividad.id)">
+                <i class="fa-solid fa-share"></i>
+              </button>
+            </td>
+          </ng-container>
+      
+          <!-- Encabezados de Columnas -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <!-- Filas de Datos -->
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
 
-    <!-- Columna Cantidad -->
-    <ng-container matColumnDef="cantidad">
-      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.cantidad }} </td>
-    </ng-container>
-
-  
-    <ng-container matColumnDef="residuo">
-      <th mat-header-cell *matHeaderCellDef> Residuo </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.residuoNombre }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="puntosGanados">
-      <th mat-header-cell *matHeaderCellDef> Puntos Ganados </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.puntosGanados }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef> Fecha </th>
-      <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="imagen">
-      <th mat-header-cell *matHeaderCellDef> Imagen </th>
-      <td mat-cell *matCellDef="let actividad"> 
-        <img [src]="'data:image/jpeg;base64,' + actividad.imagen" alt="Imagen de la actividad" class="actividad-imagen">
-      </td>
-    </ng-container>
-    
-    <!-- Columna Fecha (Formato de fecha) -->
-
-    
-    <ng-container matColumnDef="compartir">
-      <th mat-header-cell *matHeaderCellDef> Compartir </th>
-      <td mat-cell *matCellDef="let actividad">
-        <button mat-icon-button (click)="mostrarQR(actividad.id)">
-          <mat-icon>share</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <!-- Encabezados de Columnas -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <!-- Filas de Datos -->
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    </div>
+  </div>
 </div>
