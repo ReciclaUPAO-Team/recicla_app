@@ -21,9 +21,15 @@ mat-form-field {
 }
 
 /* Estilos adicionales para botones y posibles mensajes de error o información */
-button {
-  margin-top: 10px;
+
+
+button[type="submit"] {
+  background-color: #fdfffc;
+  color: #179CBB;
+  margin: 10px 10px 10px;
+  width: 120px;
 }
+
 
 .error-message {
   color: red;
