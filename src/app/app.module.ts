@@ -52,6 +52,7 @@ import { VerEstadisticaComponent } from './pages/ver-estadistica/ver-estadistica
 
 import { NgChartsModule } from 'ng2-charts';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     VerResiduoComponent,
     VerEstadisticaComponent,
     PerfilComponent,
+    FooterComponent,
     
   ],
   imports: [

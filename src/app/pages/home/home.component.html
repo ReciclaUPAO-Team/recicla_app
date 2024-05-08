@@ -1,73 +1,184 @@
-<div class="container-flex general">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./assets/Sabias-que.png" class="img-fluid">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/y-que.png" class="img-fluid" alt="...">
-                
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReciclaUPAO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <section class="main-content">
+        <div class="content-left">
+            <h1>Recicla, gana y canjea</h1>
+            <div class="text-container">
+                <p>
+                  Únete reciclando latas y botellas de plástico y gana fantásticos premios.
+                  ¡Se parte del cambio y comienza a acumular puntaje!
+                </p>
 
-<div class="container-flex general">
-    <div class="container cuerpo">
-        <hr id="choose-start" class="section-divider">
-        <div class="text-center welcome-section">
-            <h2 class="welcome-title">¡Bienvenido a RECICL♻️UPA🌎!</h2>
-            <p class="welcome-message">
-                En RECICLAUPAO, nos dedicamos a construir un campus más verde y un planeta más saludable.
-                Estamos aquí para animarte a reciclar y recompensar tus esfuerzos con beneficios increíbles.
-                ¡Únete a nuestra causa y marca la diferencia!
-            </p>
-            <p class="welcome-message">
-                Descubre cómo puedes contribuir a un futuro más sostenible y aprovechar las recompensas.
-                ¡Explora nuestra plataforma para más información!
-            </p>
+            </div>
+            
+            <button routerLink="/login">
+                 Empezar
+              </button>
+            <section class="features">
+                <div class="feature">
+                    <img src="./assets/logorecicla.png" alt="Velocidad y seguridad">
+                    <p>Velocidad y seguridad</p>
+                </div>
+                <div class="feature">
+                    <img src="./assets/reciclaje-personas.png" alt="Flexibilidad y amplitud">
+                    <p>Flexibilidad y amplitud</p>
+                </div>
+                <div class="feature">
+                    <img src="./assets/icon.png" alt="Mejor colaboración">
+                    <p>Mejor colaboración</p>
+                </div>
+            </section>
         </div>
-    </div>
-</div>
+        <div class="content-right">
+            <img src="./assets/personas-reciclando.png" alt="Personas reciclando">
+        </div>
+    </section>
 
-<div class="container-flex  beneficio">
-    <div class="text-center">
-        <h2 class="section-title">Nuestros beneficios</h2>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center text-center benefit-section">
-            <div class="col-md-3 benefit-item">
-                <div class="circle-box">
-                    <img src="./assets/recom.png" alt="Recompensas atractivas">
-                </div>
-                <h3>Recompensas atractivas</h3>
-            </div>
-            <div class="col-md-3 benefit-item">
-                <div class="circle-box">
-                    <img src="./assets/regis.png" alt="Registro fácil">
-                </div>
-                <h3>Registro fácil</h3>
-            </div>
-            <div class="col-md-3 benefit-item">
-                <div class="circle-box">
-                    <img src="./assets/impac.png" alt="Impacto ambiental">
-                </div>
-                <h3>Impacto ambiental</h3>
-            </div>
-            <div class="col-md-3 benefit-item">
-                <div class="circle-box">
-                    <img src="./assets/comu.png" alt="Comunidad comprometida">
-                </div>
-                <h3>Comunidad comprometida</h3>
-            </div>
+    <section class="big-impact">
+
+   </section>
+
+    <section class="general-info">
+      <div class="container-flex general">
+          <div class="container cuerpo">
+              <hr id="choose-start" class="section-divider">
+              <section class="welcome-section text-center">
+                  <h2 class="welcome-title">¡Bienvenido a RECICLA UPAO!</h2>
+                  <p class="welcome-message">
+                      En RECICLAUPAO, nos dedicamos a construir un campus más verde y un planeta más saludable.
+                      Estamos aquí para animarte a reciclar y recompensar tus esfuerzos con beneficios increíbles.
+                      ¡Únete a nuestra causa y marca la diferencia!
+                      Descubre cómo puedes contribuir a un futuro más sostenible y aprovechar las recompensas.
+                      ¡Explora nuestra plataforma para más información!
+                  </p>
+
+              </section>
+          </div>
+      </div>
+  </section>
+
+  <section class="offers-section">
+    <h1>Como funciona?</h1>
+    <p>Participa en nuestro programa de reciclaje y transforma tus esfuerzos en recompensas tangibles. ¡Es fácil comenzar!</p>
+    <div class="card-container">
+        <div class="offer-card">
+            <img src="./assets/recicla.png" alt="Flujos que funcionan">
+            <h2>Recicla</h2>
+            <p>Deposita tus materiales reciclables en uno de nuestros puntos de recogida distribuidos por el campus.</p>
+        </div>
+        <div class="offer-card">
+            <img src="./assets/points.png" alt="Solución integral">
+            <h2>Gana puntos</h2>
+            <p>Cada artículo que reciclas te ayuda a acumular puntos que puedes canjear por recompensas.</p>
+        </div>
+        <div class="offer-card">
+            <img src="./assets/reward.png" alt="Asistencia integral al cliente">
+            <h2>Canjea recompensas</h2>
+            <p>Accede a una variedad de recompensas, desde descuentos en la cafetería hasta material escolar y más.</p>
+        </div>
+        <div class="offer-card">
+            <img src="./assets/benefit.png" alt="Redes de automatización">
+            <h2>Genera un cambio</h2>
+            <p>Felicidades, luego de haber seguido los pasos, estarás contribuyendo al desarrollo de un mejor ambiente</p>
         </div>
     </div>
-</div>
+</section>
+
+
+
+
+    <section class="ofrecemos-container">
+        <h1>Lo que ofrecemos</h1>
+        <div class="cards-container">
+            <div class="oferta-card">
+                <img src="./assets/recom.png" alt="Descripción de la imagen">
+                <h2>Recompensas atractivas</h2>
+                <p>Gana premios útiles y atractivos al participar activamente en el reciclaje en el campus.</p>
+            </div>
+            <div class="oferta-card">
+                <img src="./assets/regis.png" alt="Descripción de la imagen">
+                <h2>Registro fácil</h2>
+                <p>Únete al programa con unos simples pasos y comienza a reciclar y ganar desde hoy.</p>
+            </div>
+            <div class="oferta-card">
+                <img src="./assets/impac.png" alt="Descripción de la imagen">
+                <h2>Impacto ambiental</h2>
+                <p>Contribuye significativamente a un campus más verde y a un planeta más sostenible.</p>
+            </div>
+            <div class="oferta-card">
+                <img src="./assets/comu.png" alt="Descripción de la imagen">
+                <h2>Compromiso</h2>
+                <p>Únete a una comunidad de estudiantes conscientes y motivados por mejorar su entorno.</p>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Sección 'Creada por creativos para creativos' -->
+     <section class="creative-section">
+      <div class="creative-text">
+          <h1>Una iniciativa de alumnos para alumnos</h1>
+          <p>
+            En la UPAO, somos más que estudiantes; somos activistas dedicados al bienestar
+            de nuestra comunidad universitaria. Nuestra iniciativa nace de la pasión y el compromiso
+            por transformar nuestra alma mater en un modelo de sostenibilidad y responsabilidad ambiental.
+             Entendemos que el orden y la limpieza son fundamentales para crear un ambiente académico propicio,
+              y es aquí donde tú juegas un papel crucial.
+          </p>
+
+      </div>
+      <div class="creative-image">
+          <img src="./assets/2.png" alt="Herramientas creativas">
+      </div>
+
+  </section>
+
+  <section class="creative-section">
+    <div class="creative-image">
+      <img src="./assets/reciclaje-landing.jpg" alt="Herramientas creativas">
+  </div>
+    <div class="creative-text">
+        <h1>Beneficios que Marcan la Diferencia</h1>
+        <p>
+          Además de contribuir a un campus más limpio y ordenado, cada acción que tomes tiene un
+          impacto directo en la conservación del medio ambiente. Al participar, no solo estás
+          ayudando a reducir el desperdicio, sino que también estás promoviendo una cultura de
+          reciclaje y cuidado ambiental entre tus compañeros.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="creative-section">
+  <div class="creative-text">
+      <h1>¿Por qué esperar? ¡Actúa ahora!</h1>
+      <p>
+        Anímate a ser parte de este cambio significativo. No es solo una oportunidad
+         para ayudar al medio ambiente, sino también para disfrutar de recompensas que
+         hemos diseñado pensando en ti. Únete a nosotros en esta misión de transformar
+         la UPAO en un espacio más verde y sostenible. Tu participación es esencial para
+         nosotros, y juntos podemos hacer que nuestro campus brille por su limpieza y
+         su compromiso con el planeta.
+      </p>
+
+  </div>
+
+</section>
+
+
+  <!-- Sección 'Maximiza tu eficiencia con estas soluciones de flujo de trabajo' -->
+
+</body>
+</html>
