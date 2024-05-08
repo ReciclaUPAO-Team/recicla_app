@@ -30,6 +30,13 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  redirectHome(): void {
+    // Solo redirige si el usuario no está logueado
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/']);
+    }
+  }
+
   navigateToDashboard(): void {
     if (this.isLoggedIn && this.userRole === 'PARTICIPANTE') {
       this.router.navigate(['/user/ver-estadistica']);
