@@ -3,7 +3,6 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: #f5f5f5;
-  background-image: url('../src/assets/papel-arrugado.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

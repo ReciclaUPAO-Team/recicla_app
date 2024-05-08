@@ -6,101 +6,98 @@ body {
     color: #333;
     background-color: #fff; /* Fondo blanco para todo el body */
   }
-  
+
   .content-left h1{
     font-size: 2.5rem;
-  
+
   }
-  
-  
+
+
   h1, h2 {
     color: #096754; /* Un color uniforme para los títulos */
   }
-  
+
   button {
     padding: 10px 20px;
-    background-color: #46B424; /* Color distintivo para los botones */
+    background-color: #49BFA7; /* Color distintivo para los botones */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   /* Ajustes para la estructura principal y secciones */
   .main-content, .general-info, .ofrecemos-container  {
     background-color: white;
     padding: 40px;
     margin: 60px auto; /* Centraliza las secciones */
     width: 70%; /* Controla el ancho para mejorar la disposición */
-  
+
   }
-  
+
   .ofrecemos-container h1{
     font-size: 2.5em;
     text-align: center; /* Centra la imagen en la columna derecha */
   }
-  
+
   .creative-section, .workflow{
     background-color: white;
     padding: 40px;
     margin: 60px auto; /* Centraliza las secciones */
     width: 70%; /* Controla el ancho para mejorar la disposición */
-  
+
   }
-  
+
   .content-left, .content-right {
     padding: 20px;
   }
-  
+
   .content-left {
     flex: 3;
   }
-  
+
   .content-right {
     flex: 2;
     text-align: center; /* Centra la imagen en la columna derecha */
   }
-  
+
   .content-right img {
     max-width: 100%;
     height: auto;
   }
-  
+
   .big-impact {
-    background-color: #46B424;
-    padding: 50px;
+    background-color: #096754;
+    padding: 25px;
     text-align: center;
     font-size: 1.5rem;
   }
-  
-  .big-impact p{
-    color: #fff;
-  }
-  
+
+
   /* Estilos para las características y tarjetas */
   .features, .cards-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  
+
   .feature, .oferta-card {
     margin: 10px;
     margin-top: 50px;
     text-align: center; /* Centra el texto y los elementos en cada característica y tarjeta */
   }
-  
+
   .feature img, .oferta-card img {
     width: 100%;
     max-width: 100px; /* Tamaño máximo para las imágenes */
     height: auto;
     margin-bottom: 10px;
   }
-  
+
   .feature p, .oferta-card p {
     font-size: 0.9em;
   }
-  
+
   .oferta-card {
     width: 23%; /* Asegura que se muestren 4 tarjetas por fila */
     padding: 20px;
@@ -108,64 +105,64 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-  
+
   /* Estilos adicionales para texto */
   .text-container p, .welcome-section p {
     line-height: 1,2;
     font-size: 18px;
   }
-  
+
   .text-container{
     margin-bottom: 20px;
   }
-  
+
   .welcome-section {
     text-align: center; /* Centra el texto de la sección de bienvenida */
   }
-  
+
   .welcome-section h2 {
     font-size: 2.5em;
   }
-  
-  
+
+
   /* Responsive design adjustments */
   @media (max-width: 768px) {
     .features, .cards-container {
         flex-direction: column;
     }
-  
+
     .feature, .oferta-card {
         width: 100%; /* Ajusta las tarjetas para que se expandan en pantallas pequeñas */
     }
   }
-  
-  
+
+
   .offers-section {
     max-width: 1200px;
     margin: 0 auto;
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
-  
+
   }
-  
+
   .offers-section h1 {
     color: #096754;
     font-size: 2.5em;
     line-height: 1,2;
   }
-  
+
   .offers-section p {
     color: #666;
     margin-bottom: 20px;
   }
-  
+
   .card-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  
+
   .offer-card {
     width: 23%;
     margin: 10px;
@@ -174,40 +171,39 @@ body {
     padding: 20px;
     text-align: center;
   }
-  
+
   .offer-card img {
     width: 100%;
     height: auto;
   }
-  
+
   .offer-card h2 {
     font-size: 1.2em;
     color: #096754;
     line-height: 1,2;
   }
-  
+
   .offer-card p {
     font-size: 0.9em;
     color: #666;
   }
-  
-  
+
+
   .offers, .creative-section, .trust, .workflow {
     padding: 50px;
     background-color: #fff;
     text-align: center;
   }
-  
+
   .creative-section .creative-text{
     margin: 60px;
   }
-  
+
   .creative-image{
-    
+
   }
-  
+
   .creative-section, .workflow {
     display: flex;
     justify-content: space-between;
   }
-  

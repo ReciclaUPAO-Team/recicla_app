@@ -1,5 +1,3 @@
-// En NavbarComponent.ts
-
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../service/login.service';
 import { Router } from '@angular/router';
@@ -12,39 +10,35 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   userName: string = '';
+  userRole: string = '';  // Añade esta línea
 
   constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.loginService.isLoggedIn();
-    if (this.isLoggedIn) {
-      this.userName = this.loginService.getUserName();
-    }
+    this.checkLoginStatus();
   }
+
   ngDoCheck(): void {
-    // Verifica el estado de inicio de sesión en cada ciclo de detección de cambios
+    this.checkLoginStatus();
+  }
+
+  private checkLoginStatus() {
     this.isLoggedIn = this.loginService.isLoggedIn();
     if (this.isLoggedIn) {
       this.userName = this.loginService.getUserName();
+      this.userRole = this.loginService.getUserRole();  // Obtén el rol del usuario
     }
   }
 
   navigateToDashboard(): void {
-    if (this.loginService.isLoggedIn()) {
-      const role = this.loginService.getUserRole();
-      if (role === 'ADMINISTRADOR') {
-        this.router.navigate(['/admin']);
-      } else if (role === 'PARTICIPANTE') {
-        this.router.navigate(['/user']);
-      }
-      // Agrega más roles y rutas según sea necesario
+    if (this.isLoggedIn && this.userRole === 'PARTICIPANTE') {
+      this.router.navigate(['/user/ver-estadistica']);
     }
   }
 
   public logout() {
-    this.loginService.logout(); // Utiliza el método logout del servicio loginService
-    this.isLoggedIn = false; // Actualiza la variable isLoggedIn
-    this.router.navigate(['/login']); // Redirige al usuario a la página de inicio de sesión
-  }
-  
+    this.loginService.logout();
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+  }
 }

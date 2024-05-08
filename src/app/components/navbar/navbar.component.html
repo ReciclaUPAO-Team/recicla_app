@@ -1,20 +1,24 @@
-  <mat-toolbar style="color: rgb(249, 255, 249); background-color: #46B424;" class="custom-toolbar">
-    <div>
-      <button mat-button [routerLink]="'/'">RECICLA UPAO</button>
+<mat-toolbar style="color: rgb(249, 255, 249); background-color: #096754;" class="custom-toolbar">
+  <div>
+    <button mat-button [routerLink]="'/'">RECICLA UPAO</button>
+  </div>
+
+  <div class="right-buttons">
+    <button *ngIf="isLoggedIn" mat-button (click)="logout()">Cerrar sesión</button>
+    <button *ngIf="!isLoggedIn" mat-button [matMenuTriggerFor]="menuRegistrar">Iniciar sesión</button>
+
+    <!-- Modificar la condición aquí para incluir la verificación del rol -->
+    <button mat-button (click)="navigateToDashboard()" *ngIf="isLoggedIn && userRole === 'PARTICIPANTE'">Ir al Dashboard</button>
+
+    <div *ngIf="isLoggedIn">
+      <span>{{ userName }}</span>
     </div>
 
-    <div class="right-buttons">
-      <button *ngIf="isLoggedIn" mat-button (click)="logout()">Cerrar sesión</button>
-      <button *ngIf="!isLoggedIn" mat-button [matMenuTriggerFor]="menuRegistrar">Iniciar sesión</button> 
-      <button mat-button (click)="navigateToDashboard()" *ngIf="isLoggedIn">Ir al Dashboard</button>
-      
-      <div *ngIf="isLoggedIn">
-        <span>{{ userName }}</span>
-      </div>
-      
-      <mat-menu #menuRegistrar="matMenu">
-        <button mat-menu-item routerLink="login">Iniciar Sesión</button>
-        <button mat-menu-item routerLink="signup">Crear cuenta</button>
-      </mat-menu>
-    </div>
-  </mat-toolbar>
+    <mat-menu #menuRegistrar="matMenu">
+      <button mat-menu-item routerLink="login">Iniciar Sesión</button>
+      <button mat-menu-item routerLink="signup">Crear cuenta</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+
