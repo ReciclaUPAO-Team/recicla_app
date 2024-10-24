@@ -4,35 +4,44 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-top: 15px;
+  margin-bottom: 50px; /* Añadimos margen inferior */
+  max-width: 95%; /* Limita el ancho máximo */
+  margin-left: auto;
+  margin-right: 50px; /* Centra el contenido horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-  
-.form-control {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .form-select {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .custom-btn {
-    background-color: #46B424;
-    border-color: #46B424;
-  }
 
-  
- /* Estilos para el título del formulario */
- h2 {
+/* Estilos para el título del formulario */
+h2 {
   font-size: 24px;
   color: #096754;
 }
 
+/* Estilos de los campos de entrada (formulario) */
+.form-control {
+  width: 80%;
+  margin: 0 auto;
+}
 
-/* boton para subir */
+.form-select {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Botones personalizados */
+.custom-btn {
+  background-color: #46B424;
+  border-color: #46B424;
+}
+
+/* Botón para subir archivos */
 .custom-file-upload {
   border: 2px dashed #49BFA7;
-  display: block; /* Cambiado de inline-block para permitir centrado */
-  width: fit-content; /* Asegura que el tamaño se ajuste al contenido */
-  margin: 0 auto; /* Centra el botón horizontalmente */
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
   padding: 12px;
   cursor: pointer;
   background-color: #49BFA7;
@@ -46,17 +55,36 @@
   color: #49BFA7;
 }
 
-
-
-/* Estilos para los botón */
+/* Botones de submit y reset */
 button[type="submit"] {
   background-color: #fdfffc;
   color: #179CBB;
 }
 
-
 button[type="reset"] {
   background-color: #ffffff;
   color: #FF6F61;
   margin-left: 60px;
+}
+
+/* Media queries para pantallas más pequeñas o con escalas superiores */
+@media (max-width: 1200px) {
+  .form-control, .form-select {
+    width: 90%; /* Se ajusta el tamaño de los inputs */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* El contenedor ocupa todo el ancho en pantallas pequeñas */
+    padding: 15px; /* Ajusta el padding */
+  }
+
+  button[type="reset"] {
+    margin-left: 30px; /* Reduce la separación entre botones en pantallas pequeñas */
+  }
+
+  .custom-file-upload {
+    padding: 10px; /* Reduce el padding para ajustarse mejor en pantallas pequeñas */
+  }
 }

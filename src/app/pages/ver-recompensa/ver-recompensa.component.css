@@ -9,19 +9,19 @@
     max-width: 300px; /* Ajusta el ancho máximo de la tarjeta */
     margin: 10px; /* Espacio alrededor de cada tarjeta */
   }
-  
+
   .recompensas-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  
+
   img[mat-card-image] {
     width: 300px;  /* Ancho fijo */
     height: 300px; /* Altura fija */
     object-fit: cover; /* Para mantener las proporciones de la imagen */
 }
-  
+
 h2 {
   font-size: 24px;
   color: #096754;
@@ -33,7 +33,7 @@ button[type="submit"] {
   color: #179CBB;
   margin: 10px 10px 10px;
 }
-  
+
 button[type="reset"] {
   background-color: #ffffff;
   color: #FF6F61;
@@ -52,7 +52,7 @@ button[type="reset"] {
 }
 
 mat-card-content h2{
-  
+
   display: flex;
   color: #212429;
   font-size: 20px;
@@ -60,4 +60,3 @@ mat-card-content h2{
   justify-content: center;
   margin-top: 10px;
 }
-  
