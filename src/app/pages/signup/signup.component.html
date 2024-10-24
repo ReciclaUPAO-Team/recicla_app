@@ -10,48 +10,58 @@
 
         <h1 class="text-center">Registrate</h1>
 
-        <form (ngSubmit)="formSubmit()">
+        <form [formGroup]="signupForm" (ngSubmit)="formSubmit()">
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Nombre</mat-label>
-            <input required [(ngModel)]="user.nombre" name="nombre" matInput placeholder="Digite su nombre">
+            <input matInput formControlName="nombre" placeholder="Digite su nombre">
+            <mat-error *ngIf="signupForm.get('nombre')!.invalid && signupForm.get('nombre')!.touched">El nombre es requerido y solo puede contener letras</mat-error>
           </mat-form-field>
-
+        
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Edad</mat-label>
-            <input required [(ngModel)]="user.edad" name="edad" matInput placeholder="Digite su edad">
+            <input matInput formControlName="edad" placeholder="Digite su edad" type="number">
+            <mat-error *ngIf="signupForm.get('edad')!.invalid && signupForm.get('edad')!.touched">La edad debe estar entre 16 y 100 años</mat-error>
           </mat-form-field>
-
+        
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Teléfono</mat-label>
-            <input required [(ngModel)]="user.telefono" name="telefono" matInput placeholder="Digite su teléfono">
+            <input matInput formControlName="telefono" placeholder="Digite su teléfono">
+            <mat-error *ngIf="signupForm.get('telefono')!.invalid && signupForm.get('telefono')!.touched">Ingresar numero teléfono valido</mat-error>
           </mat-form-field>
-
+        
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Email</mat-label>
-            <input required [(ngModel)]="user.correo" name="correo" type="email" matInput placeholder="Digite su email">
+            <input matInput formControlName="correo" placeholder="Digite su email" type="email">
+            <mat-error *ngIf="signupForm.get('correo')!.invalid && signupForm.get('correo')!.touched">Introduzca un correo válido</mat-error>
           </mat-form-field>
-
+        
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Nombre de usuario</mat-label>
-            <input required [(ngModel)]="user.username" name="username" matInput placeholder="Digite su nombre de usuario">
+            <input matInput formControlName="username" placeholder="Digite su nombre de usuario">
             <mat-hint>El nombre de usuario debe ser único</mat-hint>
+            <mat-error *ngIf="signupForm.get('username')!.invalid && signupForm.get('username')!.touched">El nombre de usuario es requerido</mat-error>
           </mat-form-field>
-
+        
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Contraseña</mat-label>
-            <input required [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Digite su contraseña">
+            <input matInput formControlName="password" placeholder="Digite su contraseña" type="password">
+            <mat-error *ngIf="signupForm.get('password')!.invalid && signupForm.get('password')!.touched">La contraseña debe tener al menos 3 caracteres</mat-error>
           </mat-form-field>
-
+        
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>DNI</mat-label>
-            <input required [(ngModel)]="user.dni" name="dni" matInput placeholder="Digite su DNI">
+            <input matInput formControlName="dni" placeholder="Digite su DNI">
+            <mat-error *ngIf="signupForm.get('dni')!.invalid && signupForm.get('dni')!.touched">Ingresar un numero de DNI valido</mat-error>
           </mat-form-field>
-
+        
           <div class="container text-center">
             <button type="submit" mat-raised-button>Ingresar</button>
-
           </div>
         </form>
+        
+        
+
+
       </mat-card>
         <br><br><br>
       </div>

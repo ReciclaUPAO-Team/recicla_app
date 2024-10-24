@@ -3,6 +3,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import  Swal  from 'sweetalert2';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,25 +13,25 @@ import  Swal  from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
 
-  public user = {
-    nombre: '',
-    edad : '',
-    telefono : '',
-    correo : '',
-    username: '',
-    password: '',
-    dni:'',
-  }
+  signupForm!: FormGroup;
 
-  constructor(private userService:UserService,private snack:MatSnackBar, private router:Router) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private snack: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
+    this.signupForm = this.fb.group({
+      nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      edad: ['', [Validators.required, Validators.min(16), Validators.max(100)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]],
+      correo: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(3)]],
+      dni: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]]
+    });
   }
 
   formSubmit() {
-    console.log(this.user);
-    if (this.user.username == '' || this.user.username == null) {
-      this.snack.open('El nombre de usuario es requerido !!', 'Aceptar', {
+    if (this.signupForm.invalid) {
+      this.snack.open('Por favor, complete los campos requeridos correctamente', 'Aceptar', {
         duration: 3000,
         verticalPosition: 'top',
         horizontalPosition: 'right'
@@ -37,12 +39,8 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    // Registra el usuario
-    this.userService.addUsuario(this.user).subscribe(
+    this.userService.addUsuario(this.signupForm.value).subscribe(
       (data) => {
-        console.log(data);
-
-        // Muestra la alerta y espera que el usuario interactúe
         Swal.fire({
           title: 'Usuario guardado',
           text: 'Usuario registrado con éxito en el sistema',
@@ -50,7 +48,6 @@ export class SignupComponent implements OnInit {
           confirmButtonText: 'Aceptar'
         }).then((result) => {
           if (result.isConfirmed) {
-            // Redirige al componente de login después de que el usuario cierre el Swal
             window.location.href = '/login';
           }
         });
@@ -67,3 +64,4 @@ export class SignupComponent implements OnInit {
     );
   }
 }
+
