@@ -2,7 +2,7 @@
   background-color: #ffffffda;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 10px;
   margin-top: 15px;
   margin-bottom: 50px;
   display: flex;
@@ -11,6 +11,64 @@
   max-width: 95%; /* Limita el ancho máximo */
   margin-left: auto;
   margin-right: 50px; /* Centra el contenido horizontalmente */
+}
+.imagen-reciclaje {
+  width: 150px; /* Ancho ajustado */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 20px; /* Espacio superior */
+}
+
+
+.btn-export {
+  margin-left: 10px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 2px solid; /* Añadir borde personalizado */
+}
+
+/* Estilos para el botón de exportación a PDF */
+.btn-export.pdf {
+  border-color: #ff0000; /* Borde rojo */
+  color: #ff0000; /* Texto rojo */
+  background-color: #ffffff; /* Fondo blanco */
+}
+
+.btn-export.pdf i {
+  color: #ff0000; /* Icono rojo */
+}
+
+/* Estilos para el botón de exportación a CSV */
+.btn-export.csv {
+  border-color: #007BFF; /* Borde azul */
+  color: #007BFF; /* Texto azul */
+  background-color: #ffffff; /* Fondo blanco */
+}
+
+.btn-export.csv i {
+  color: #007BFF; /* Icono azul */
+}
+
+/* Efectos hover para el botón PDF */
+.btn-export.pdf:hover {
+  background-color: #ff0000; /* Fondo rojo al hacer hover */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-export.pdf:hover i {
+  color: #ffffff; /* Icono blanco en hover */
+}
+
+/* Efectos hover para el botón CSV */
+.btn-export.csv:hover {
+  background-color: #007BFF; /* Fondo azul al hacer hover */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-export.csv:hover i {
+  color: #ffffff; /* Icono blanco en hover */
 }
 
 h2 {

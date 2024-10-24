@@ -3,6 +3,8 @@ import { ReActividadService } from 'src/app/service/re-actividad.service';
 import Swal from 'sweetalert2';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSelectChange } from '@angular/material/select';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-v-historial',
@@ -78,6 +80,71 @@ export class VHistorialComponent implements OnInit {
       // Restauramos el estado original si se selecciona "Todos"
       this.actividades.data = [...this.actividadesOriginal];
     }
+  }
+
+  // Función para exportar los datos visibles a PDF
+  exportarPDF(): void {
+    const doc = new jsPDF();
+    doc.setFontSize(14);
+    doc.text('Historial de Actividades', 10, 10);
+
+    // Capturamos las actividades visibles en la tabla
+    const actividadesFiltradas = this.actividades.filteredData;
+
+    // Mapeamos los datos para agregarlos a la tabla del PDF
+    const body = actividadesFiltradas.map((actividad: any) => [
+      actividad.nombre,
+      actividad.cantidad,
+      actividad.residuoNombre,
+      actividad.puntosGanados,
+      new Date(actividad.fecha).toLocaleString(),
+    ]);
+
+    // Definimos las columnas para el PDF
+    const head = [['Nombre', 'Cantidad', 'Residuo', 'Puntos Ganados', 'Fecha']];
+
+    // Generamos la tabla en el PDF
+    (doc as any).autoTable({
+      head: head,
+      body: body,
+      startY: 20, // Ajustamos la posición vertical para que no sobreponga el título
+    });
+
+    // Guardamos el PDF con un nombre específico
+    doc.save('historial_actividades.pdf');
+  }
+
+  // Función para exportar a CSV
+  exportarCSV(): void {
+    const actividadesFiltradas = this.actividades.filteredData;
+    const csvRows = [];
+
+    // Agregamos la cabecera
+    const headers = ['Nombre', 'Cantidad', 'Residuo', 'Puntos Ganados', 'Fecha'];
+    csvRows.push(headers.join(',')); // Añadimos las columnas al CSV
+
+    // Mapeamos los datos filtrados
+    actividadesFiltradas.forEach((actividad: any) => {
+      const row = [
+        actividad.nombre,
+        actividad.cantidad,
+        actividad.residuoNombre,
+        actividad.puntosGanados,
+        new Date(actividad.fecha).toLocaleString(),
+      ];
+      csvRows.push(row.join(',')); // Añadimos cada fila
+    });
+
+    // Generamos el archivo CSV
+    const csvContent = 'data:text/csv;charset=utf-8,' + csvRows.join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', 'historial_actividades.csv');
+    document.body.appendChild(link);
+
+    link.click(); // Hacemos clic en el link para descargar el archivo
+    document.body.removeChild(link); // Eliminamos el link después de la descarga
   }
 
   mostrarQR(idActividad: number): void {
