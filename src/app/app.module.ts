@@ -53,6 +53,7 @@ import { VerEstadisticaComponent } from './pages/ver-estadistica/ver-estadistica
 import { NgChartsModule } from 'ng2-charts';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -81,7 +82,7 @@ import { FooterComponent } from './components/footer/footer.component';
     VerEstadisticaComponent,
     PerfilComponent,
     FooterComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -105,6 +106,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     MatPaginatorModule,
     NgChartsModule,
+    MatSelectModule
   ],
   providers: [
     {
