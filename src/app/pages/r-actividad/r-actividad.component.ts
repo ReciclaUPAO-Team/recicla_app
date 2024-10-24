@@ -14,6 +14,7 @@ import { Residuo } from '../../Modelo/residuo';  // Importa el modelo de residuo
 export class RActividadComponent implements OnInit {
   actividadForm: FormGroup;
   imagenArchivo: File | null = null;
+  imageTouched: boolean = false; // Para controlar si la imagen fue tocada
   residuos: Residuo[] = [];  // Almacena los residuos cargados
 
   constructor(
@@ -45,6 +46,7 @@ export class RActividadComponent implements OnInit {
   }
 
   onFileSelected(event: Event): void {
+    this.imageTouched = true;
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length) {
       this.imagenArchivo = input.files[0];
@@ -75,6 +77,15 @@ export class RActividadComponent implements OnInit {
           });
         }
       );
+    } else {
+      this.imageTouched = true; // Si se intenta enviar sin imagen
+      Swal.fire('Error', 'Por favor, completa todos los campos y selecciona una imagen', 'error');
     }
+  }
+
+  onReset(): void {
+    this.actividadForm.reset(); // Restablece el formulario
+    this.imagenArchivo = null;  // Restablece la imagen
+    this.imageTouched = false;  // Reinicia el estado de la imagen tocada
   }
 }
