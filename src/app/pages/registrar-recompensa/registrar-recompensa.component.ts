@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RRecompensaService } from 'src/app/service/r-recompensa.service';
 import Swal from 'sweetalert2';
+import { Recompensa } from 'src/app/Modelo/recompensa';
 
 @Component({
   selector: 'app-registrar-recompensa',
@@ -12,6 +13,7 @@ export class RegistrarRecompensaComponent implements OnInit {
   recompensaForm: FormGroup;
   imagenArchivo: File | null = null;
   imageTouched: boolean = false; // Para controlar si la imagen fue tocada
+  recompensas: Recompensa[] = []; // Lista de recompensas para verificar duplicados
 
   constructor(
     private fb: FormBuilder,
@@ -25,17 +27,39 @@ export class RegistrarRecompensaComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Cargar recompensas existentes al inicio para verificar duplicados
+    this.recompensaService.listarRecompensa().subscribe(
+      (data: any) => {
+        this.recompensas = data.content;
+      },
+      (error) => {
+        console.error('Error al cargar recompensas:', error);
+      }
+    );
+  }
 
-  onFileSelected(event: Event): void {
-    this.imageTouched = true;
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length) {
-      this.imagenArchivo = input.files[0];
-    }
+  // Función para verificar si hay recompensas duplicadas
+  verificarDuplicado(titulo: string, descripcion: string): boolean {
+    return this.recompensas.some(
+      recompensa =>
+        recompensa.titulo.toLowerCase() === titulo.toLowerCase() ||
+        recompensa.descripcion.toLowerCase() === descripcion.toLowerCase()
+    );
   }
 
   onSubmit(): void {
+    const titulo = this.recompensaForm.value.titulo;
+    const descripcion = this.recompensaForm.value.descripcion;
+
+    // Verifica si ya existe una recompensa con el mismo título o descripción
+    const recompensaDuplicada = this.verificarDuplicado(titulo, descripcion);
+
+    if (recompensaDuplicada) {
+      Swal.fire('Error', 'Ya existe una recompensa con el mismo título o descripción.', 'error');
+      return; // No continuar si hay duplicados
+    }
+
     if (this.recompensaForm.valid && this.imagenArchivo) {
       const formData = new FormData();
       formData.append('titulo', this.recompensaForm.value.titulo);
@@ -54,14 +78,22 @@ export class RegistrarRecompensaComponent implements OnInit {
         }
       );
     } else {
-      this.imageTouched = true; // Si se intenta enviar el formulario sin imagen
+      this.imageTouched = true;
       Swal.fire('Error', 'Por favor, completa todos los campos y selecciona una imagen', 'error');
     }
   }
 
+  onFileSelected(event: Event): void {
+    this.imageTouched = true;
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length) {
+      this.imagenArchivo = input.files[0];
+    }
+  }
+
   onReset(): void {
-    this.recompensaForm.reset(); // Restablece el formulario
-    this.imagenArchivo = null;   // Restablece el archivo de la imagen
-    this.imageTouched = false;   // Restablece el estado de la imagen
+    this.recompensaForm.reset();
+    this.imagenArchivo = null;
+    this.imageTouched = false;
   }
 }

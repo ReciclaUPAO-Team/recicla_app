@@ -54,7 +54,7 @@ export class VerRecompensaComponent implements OnInit {
       }
     );
   }
-  
+
   eliminarRecompensa(id: number): void {
     this.recompensaService.eliminarRecompensa(id).subscribe(
       response => {
@@ -88,7 +88,7 @@ export class VerRecompensaComponent implements OnInit {
       }
     });
   }
-  
+
   verificarRolUsuario(): void {
     const rol = this.loginService.getUserRole();
     this.esParticipante = rol === 'PARTICIPANTE';
@@ -98,44 +98,87 @@ export class VerRecompensaComponent implements OnInit {
     Swal.fire({
       title: 'Editar Recompensa',
       html: `
-        <div class="swal2-label">Título</div>
-        <input id="titulo" class="swal2-input" placeholder="Título" value="${recompensa.titulo}">
-        
-        <div class="swal2-label">Descripción</div>
-        <input id="descripcion" class="swal2-input" placeholder="Descripción" value="${recompensa.descripcion}">
-  
-        <div class="swal2-label">Valor</div>
-        <input id="valor" type="number" class="swal2-input" placeholder="Valor" value="${recompensa.valor}">
-      `,
+    <div class="swal2-label">Título</div>
+    <input id="titulo" class="swal2-input" placeholder="Título" value="${recompensa.titulo}">
+
+    <div class="swal2-label">Descripción</div>
+    <input id="descripcion" class="swal2-input" placeholder="Descripción" value="${recompensa.descripcion}">
+
+    <div class="swal2-label">Valor</div>
+    <input id="valor" type="number" class="swal2-input" placeholder="Valor" value="${recompensa.valor}">
+  `,
       focusConfirm: false,
-      showCancelButton: true, // Mostrar el botón de cancelar
-      confirmButtonText: 'Aceptar', // Texto del botón de confirmar
-      cancelButtonText: 'Cancelar', // Texto del botón de cancelar
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
       preConfirm: () => {
-        return {
-          titulo: (<HTMLInputElement>document.getElementById('titulo')).value,
-          descripcion: (<HTMLInputElement>document.getElementById('descripcion')).value,
-          valor: (<HTMLInputElement>document.getElementById('valor')).value
+        const titulo = (<HTMLInputElement>document.getElementById('titulo')).value;
+        const descripcion = (<HTMLInputElement>document.getElementById('descripcion')).value;
+        const valor = (<HTMLInputElement>document.getElementById('valor')).value;
+
+        if (!titulo || !descripcion || !valor) {
+          Swal.showValidationMessage('Todos los campos son obligatorios.');
+          return false;
         }
+
+        const soloLetrasRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/;
+        if (!soloLetrasRegex.test(titulo)) {
+          Swal.showValidationMessage('El título solo debe contener letras y espacios.');
+          return false;
+        }
+        if (titulo.length > 40) {
+          Swal.showValidationMessage('El título no debe exceder los 40 caracteres.');
+          return false;
+        }
+        if (!soloLetrasRegex.test(descripcion)) {
+          Swal.showValidationMessage('La descripción solo debe contener letras y espacios.');
+          return false;
+        }
+        if (descripcion.length > 50) {
+          Swal.showValidationMessage('La descripción no debe exceder los 50 caracteres.');
+          return false;
+        }
+        if (isNaN(Number(valor)) || Number(valor) <= 0) {
+          Swal.showValidationMessage('El valor debe ser un número mayor que 0.');
+          return false;
+        }
+
+        // Verifica si ya existe otra recompensa con el mismo título o descripción
+        const recompensaDuplicada = this.verificarDuplicado(titulo, descripcion, recompensa.id);
+        if (recompensaDuplicada) {
+          Swal.showValidationMessage('Ya existe otra recompensa con el mismo título o descripción.');
+          return false;
+        }
+
+        return { titulo, descripcion, valor };
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        // Construye aquí el objeto de recompensa actualizado
         const recompensaActualizada = {
           ...recompensa,
           titulo: result.value.titulo,
           descripcion: result.value.descripcion,
           valor: result.value.valor
         };
+
         this.actualizarRecompensa(recompensaActualizada);
       }
     });
   }
-  
+
+// Función para verificar si hay recompensas duplicadas al editar
+  verificarDuplicado(titulo: string, descripcion: string, id: number): boolean {
+    return this.recompensas.some(
+      recompensa =>
+        (recompensa.titulo.toLowerCase() === titulo.toLowerCase() ||
+          recompensa.descripcion.toLowerCase() === descripcion.toLowerCase()) &&
+        recompensa.id !== id
+    );
+  }
 
   actualizarRecompensa(recompensaActualizada: Recompensa): void {
     console.log('Recompensa a actualizar:', recompensaActualizada);
-  
+
     this.recompensaService.actualizarRecompensa(recompensaActualizada).subscribe(
       data => {
         Swal.fire('¡Actualizado!', 'La recompensa ha sido actualizada con éxito.', 'success');
@@ -146,6 +189,6 @@ export class VerRecompensaComponent implements OnInit {
       }
     );
   }
-  
-  
+
+
 }
