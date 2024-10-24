@@ -9,11 +9,18 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Nombre de la Actividad</mat-label>
             <input type="text" matInput formControlName="nombre" placeholder="Ingrese el nombre de la actividad" required>
+            <mat-error *ngIf="actividadForm.get('nombre')!.invalid && actividadForm.get('nombre')!.touched">
+              El nombre de la actividad solo debe contener letras y espacios.
+            </mat-error>
           </mat-form-field>
+          
 
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Cantidad</mat-label>
             <input type="number" matInput formControlName="cantidad" placeholder="Ingrese la cantidad" required>
+            <mat-error *ngIf="actividadForm.get('cantidad')!.invalid && actividadForm.get('cantidad')!.touched">
+              La cantidad debe ser un número natural mayor que 0.
+            </mat-error>
           </mat-form-field>
 
           <!-- Aquí reemplazamos el campo de texto de residuo por un select -->
@@ -24,6 +31,9 @@
                 {{ residuo.nombre }} - {{ residuo.descripcion }}
               </mat-option>
             </mat-select>
+            <mat-error *ngIf="actividadForm.get('nombreResiduo')!.invalid && actividadForm.get('nombreResiduo')!.touched">
+              Seleccione un residuo.
+            </mat-error>
           </mat-form-field>
 
           <!-- Mensaje en letras rojas cuando no hay residuos registrados -->

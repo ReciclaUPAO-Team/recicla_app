@@ -23,8 +23,8 @@ export class RActividadComponent implements OnInit {
     private snack: MatSnackBar
   ) {
     this.actividadForm = this.fb.group({
-      nombre: ['', Validators.required],
-      cantidad: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(30)]],
+      cantidad: ['', [Validators.required, Validators.min(1), Validators.pattern(/^[0-9]+$/)]],
       nombreResiduo: ['', Validators.required]  // Aquí estará el residuo seleccionado
     });
   }
