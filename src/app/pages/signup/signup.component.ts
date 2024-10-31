@@ -19,11 +19,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/), Validators.minLength(3), Validators.maxLength(12)]],
       edad: ['', [Validators.required, Validators.min(16), Validators.max(100)]],
       telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]],
       correo: ['', [Validators.required, Validators.email]],
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(9)]],
       password: ['', [Validators.required, Validators.minLength(3)]],
       dni: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]]
     });
@@ -51,31 +51,31 @@ export class SignupComponent implements OnInit {
             window.location.href = '/login';
           }
         });
-      }, 
-      
+      },
+
       (error) => {
         let errorMessage = 'Ha ocurrido un error en el sistema !!';
-        
+
         // Verifica si el mensaje de error contiene información sobre la entrada duplicada
         if (error.error && error.error.message) {
           const backendMessage = error.error.message;
-      
+
           // Comprueba si el mensaje contiene "Duplicate entry"
           const duplicateEntryMatch = backendMessage.match(/Duplicate entry '(.+?)' for key '(.+?)'/);
           if (duplicateEntryMatch) {
-               
+
             // Personaliza el mensaje de error usando el nombre del campo en español y el valor duplicado
-            errorMessage = `El "Dni, nombre de usuario o correo" ya ha sido registrado anteriormente.`;
-          } 
+            errorMessage = `Error: Algunos de los campos ingresados ya están registrados. Por favor, revise e intente nuevamente.`;
+          }
         }
-      
+
         this.snack.open(errorMessage, 'Aceptar', {
           duration: 6000 // Duración de 4 segundos
         });
       }
-      
-      
-      
+
+
+
     );
   }
 }
