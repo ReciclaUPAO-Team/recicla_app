@@ -51,16 +51,31 @@ export class SignupComponent implements OnInit {
             window.location.href = '/login';
           }
         });
-      }, (error) => {
-        console.log(error);
+      }, 
+      
+      (error) => {
         let errorMessage = 'Ha ocurrido un error en el sistema !!';
+        
+        // Verifica si el mensaje de error contiene información sobre la entrada duplicada
         if (error.error && error.error.message) {
-          errorMessage = error.error.message;
+          const backendMessage = error.error.message;
+      
+          // Comprueba si el mensaje contiene "Duplicate entry"
+          const duplicateEntryMatch = backendMessage.match(/Duplicate entry '(.+?)' for key '(.+?)'/);
+          if (duplicateEntryMatch) {
+               
+            // Personaliza el mensaje de error usando el nombre del campo en español y el valor duplicado
+            errorMessage = `El "Dni, nombre de usuario o correo" ya ha sido registrado anteriormente.`;
+          } 
         }
+      
         this.snack.open(errorMessage, 'Aceptar', {
-          duration: 3000
+          duration: 4000 // Duración de 4 segundos
         });
       }
+      
+      
+      
     );
   }
 }

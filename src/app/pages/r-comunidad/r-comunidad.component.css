@@ -1,20 +1,31 @@
 .container {
-  background-color: #ffffffda;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin-top: 20px;
+  max-width: 90%; /* Ajusta el ancho máximo para que ocupe casi todo el espacio */
+  width: 100%;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 26px;
   color: #096754;
+  text-align: center;
 }
 
-button[type="submit"] {
-  background-color: #fdfffc;
-  color: #179CBB;
+mat-form-field {
+  width: 100% !important;
+  display: block;
+  margin-bottom: 16px;
+}
+
+input, textarea {
+  font-size: 18px;
+  padding: 10px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
 }

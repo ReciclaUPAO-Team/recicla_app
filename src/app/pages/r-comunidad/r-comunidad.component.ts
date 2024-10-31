@@ -18,8 +18,8 @@ export class RComunidadComponent implements OnInit {
 
   ngOnInit(): void {
     this.comunidadForm = this.fb.group({
-      nombre: ['', Validators.required],
-      descripcion: ['']
+      nombre: ['', Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(30)],
+      descripcion: ['', Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(200)]
     });
   }
 
