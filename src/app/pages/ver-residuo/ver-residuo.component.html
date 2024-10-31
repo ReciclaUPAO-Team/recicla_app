@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="text-center">Residuos</h2>
-    
-  
+
+
     <div class="cards-container">
       <mat-card *ngFor="let residuo of residuos " class="residuo-card ">
         <mat-card-header>
@@ -17,14 +17,14 @@
             <button type="submit" mat-raised-button (click)="actualizarResiduo(residuo)">Actualizar</button>
           <button type="reset" mat-raised-button (click)="eliminarResiduo(residuo.id)">Eliminar</button>
           </div>
-          
+
         </mat-card-content>
       </mat-card>
     </div>
     <mat-paginator [length]="totalElements"
                    [pageIndex]="currentPage"
-                   [pageSize]="10"
-                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 15]"
                    (page)="cargarResiduos($event)">
     </mat-paginator>
   </div>

@@ -60,3 +60,13 @@ mat-card-content h2{
   justify-content: center;
   margin-top: 10px;
 }
+
+.no-recompensas {
+  margin-top: 20px;
+}
+
+.imagen-sin-recompensas {
+  width: 150px;
+  height: auto;
+  margin-top: 10px;
+}

@@ -1,28 +1,37 @@
-<div class="boostrap-wrapper">
+<div class="bootstrap-wrapper">
   <div class="container">
-    <h2 class="text-center">Recompensas Disponibles Para Canjear </h2> <!-- Título con clase personalizada -->
-    <div class="recompensas-container">
+    <h2 class="text-center">Recompensas Disponibles Para Canjear</h2>
+
+    <!-- Mensaje cuando no hay recompensas disponibles -->
+    <div *ngIf="recompensas.length === 0" class="text-center no-recompensas">
+      <p>Todavía no hay recompensas generadas. ¡Pronto habrán nuevas recompensas!</p>
+      <img src="/assets/recom.png" alt="No hay recompensas" class="imagen-sin-recompensas">
+    </div>
+
+    <!-- Lista de recompensas si existen -->
+    <div class="recompensas-container" *ngIf="recompensas.length > 0">
       <mat-card *ngFor="let recompensa of recompensas" class="recompensa-card">
         <img mat-card-image *ngIf="recompensa.imagenPath" [src]="'data:image/jpeg;base64,' + recompensa.imagenPath"
-          alt="Imagen de Recompensa">
+             alt="Imagen de Recompensa">
 
         <mat-card-content>
-          
           <h2>{{ recompensa.titulo }}</h2>
           <p>{{ recompensa.descripcion }}</p>
           <div class="juntos">
             <p><span class="bold">Categoría:</span> {{ recompensa.categoria }}</p>
             <p><span class="bold">Valor:</span> {{ recompensa.valor }}</p>
           </div>
-          
         </mat-card-content>
 
-        <div class="container-box text-center" >
-          <button type="submit" mat-raised-button  *ngIf="esParticipante" (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
-          <button type="submit" mat-raised-button *ngIf="!esParticipante" (click)="editarRecompensa(recompensa)" ><i class="fa-solid fa-pen-to-square"></i></button>
-          <button type="reset" mat-raised-button *ngIf="!esParticipante" (click)="confirmarEliminacion(recompensa.id)"><i class="fa-solid fa-trash"></i></button>
+        <div class="container-box text-center">
+          <button type="submit" mat-raised-button *ngIf="esParticipante" (click)="canjearRecompensa(recompensa.titulo)">Canjear</button>
+          <button type="submit" mat-raised-button *ngIf="!esParticipante" (click)="editarRecompensa(recompensa)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button type="reset" mat-raised-button *ngIf="!esParticipante" (click)="confirmarEliminacion(recompensa.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
         </div>
-
       </mat-card>
     </div>
   </div>

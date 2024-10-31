@@ -12,6 +12,7 @@ export class VerResiduoComponent implements OnInit {
   residuos: any[] = [];
   totalElements: number = 0;
   currentPage: number = 0;
+  pageSize: number = 5; // Variable para almacenar el tamaño de página seleccionado
 
   constructor(private residuoService: ResiduoService) { }
 
@@ -20,10 +21,11 @@ export class VerResiduoComponent implements OnInit {
   }
 
   cargarResiduos(event?: PageEvent) {
-    let pageIndex = event ? event.pageIndex : this.currentPage;
-    let pageSize = event ? event.pageSize : 10;
+    // Actualiza currentPage y pageSize en función del evento, si existe
+    this.currentPage = event ? event.pageIndex : this.currentPage;
+    this.pageSize = event ? event.pageSize : this.pageSize;
 
-    this.residuoService.getAllResiduos({ page: pageIndex, size: pageSize }).subscribe(data => {
+    this.residuoService.getAllResiduos({ page: this.currentPage, size: this.pageSize }).subscribe(data => {
       this.residuos = data.content;
       this.totalElements = data.totalElements;
       this.currentPage = data.number;
@@ -51,7 +53,7 @@ export class VerResiduoComponent implements OnInit {
         }, error => {
           Swal.fire(
             'Error',
-            'Hubo un problema al eliminar el residuo.',
+            'No se puede eliminar este residuo porque está siendo utilizado por otro usuario.',
             'error'
           );
         });
