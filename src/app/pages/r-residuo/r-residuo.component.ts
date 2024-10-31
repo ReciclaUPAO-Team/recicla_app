@@ -17,18 +17,17 @@ export class RResiduoComponent implements OnInit {
       nombre: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/),  // Solo letras y espacios
-        Validators.maxLength(50)  // Máximo 50 caracteres
+        Validators.maxLength(25)
       ]),
       descripcion: new FormControl('', [
         Validators.required,
         // Solo letras y espacios
-        Validators.maxLength(40)  // Máximo 40 caracteres
+        Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/),
+        Validators.maxLength(30)  // Máximo 40 caracteres
       ]),
-      tipo: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/),  // Solo letras y espacios
-        Validators.maxLength(30)  // Máximo 30 caracteres
-      ]),
+
+      tipo: new FormControl('', [Validators.required]),
+
       puntos: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[0-9]+$/),  // Solo números

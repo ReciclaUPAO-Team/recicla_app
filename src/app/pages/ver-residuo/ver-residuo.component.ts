@@ -63,32 +63,40 @@ export class VerResiduoComponent implements OnInit {
     Swal.fire({
       title: 'Actualizar Residuo',
       html:
-        `<input id="nombre" class="swal2-input" placeholder="Nombre" value="${residuo.nombre}">
+        `<div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+         <label for="nombre" style="font-weight: bold;">Nombre del Residuo:</label>
+         <input  id="nombre" class="swal2-input" placeholder="Nombre" value="${residuo.nombre}">
+
+         <label for="descripcion" style="font-weight: bold;">Descripción:</label>
          <input id="descripcion" class="swal2-input" placeholder="Descripción" value="${residuo.descripcion}">
-         <input id="tipo" class="swal2-input" placeholder="Tipo" value="${residuo.tipo}">
-         <input id="puntos" class="swal2-input" placeholder="Puntos" type="number" value="${residuo.puntos}">`,
+
+         <label for="tipo" style="font-weight: bold;">Tipo de Residuo:</label>
+         <select id="tipo" class="swal2-input">
+           <option value="Vidrio" ${residuo.tipo === 'Vidrio' ? 'selected' : ''}>Vidrio</option>
+           <option value="Plástico" ${residuo.tipo === 'Plástico' ? 'selected' : ''}>Plástico</option>
+           <option value="Papel" ${residuo.tipo === 'Papel' ? 'selected' : ''}>Papel</option>
+           <option value="General" ${residuo.tipo === 'General' ? 'selected' : ''}>General</option>
+         </select>
+
+         <label for="puntos" style="font-weight: bold;">Puntos:</label>
+         <input id="puntos" class="swal2-input" placeholder="Puntos" type="number" value="${residuo.puntos}">
+       </div>`,
       focusConfirm: false,
       preConfirm: () => {
         const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
         const descripcion = (document.getElementById('descripcion') as HTMLInputElement).value;
-        const tipo = (document.getElementById('tipo') as HTMLInputElement).value;
+        const tipo = (document.getElementById('tipo') as HTMLSelectElement).value;
         const puntos = (document.getElementById('puntos') as HTMLInputElement).value;
 
-        // Validaciones de nombre y descripción
         const soloLetrasRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/;
 
-        if (!nombre || !soloLetrasRegex.test(nombre) || nombre.length > 50) {
+        if (!nombre || !soloLetrasRegex.test(nombre) || nombre.length > 25) {
           Swal.showValidationMessage('El nombre solo debe contener letras, sin números y máximo 50 caracteres.');
           return false;
         }
 
-        if (!descripcion || !soloLetrasRegex.test(descripcion) || descripcion.length > 40) {
+        if (!descripcion || !soloLetrasRegex.test(descripcion) || descripcion.length > 30) {
           Swal.showValidationMessage('La descripción solo debe contener letras, sin números y máximo 40 caracteres.');
-          return false;
-        }
-
-        if (!soloLetrasRegex.test(tipo) || tipo.length > 30) {
-          Swal.showValidationMessage('El tipo solo debe contener letras, sin números y máximo 30 caracteres.');
           return false;
         }
 
@@ -106,7 +114,6 @@ export class VerResiduoComponent implements OnInit {
       if (result.isConfirmed) {
         const { nombre, descripcion } = result.value;
 
-        // Validar si el nombre o la descripción ya existen
         const { nombreDuplicado, descripcionDuplicada } = this.validarDuplicados(nombre, descripcion, residuo.id);
 
         if (nombreDuplicado) {
@@ -122,7 +129,6 @@ export class VerResiduoComponent implements OnInit {
             text: 'Ya existe un residuo con la misma descripción.'
           });
         } else {
-          // Si no hay duplicados, actualizar el residuo
           this.residuoService.updateResiduo(result.value).subscribe(
             response => {
               Swal.fire({
@@ -144,6 +150,8 @@ export class VerResiduoComponent implements OnInit {
       }
     });
   }
+
+
 
   validarDuplicados(nombre: string, descripcion: string, id: number): { nombreDuplicado: boolean; descripcionDuplicada: boolean } {
     const nombreDuplicado = this.residuos.some(
