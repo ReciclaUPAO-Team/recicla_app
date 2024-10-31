@@ -18,7 +18,7 @@
             <mat-label>Descripción</mat-label>
             <textarea matInput formControlName="descripcion" placeholder="Ingrese la descripción" required></textarea>
             <mat-error *ngIf="recompensaForm.get('descripcion')!.invalid && recompensaForm.get('descripcion')!.touched">
-              La descripción debe tener máximo 50 caracteres y no puede contener números.
+              La descripción debe tener máximo 30 caracteres y no puede contener números.
             </mat-error>
           </mat-form-field>
 
@@ -26,7 +26,7 @@
             <mat-label>Categoría</mat-label>
             <input matInput formControlName="categoria" placeholder="Ingrese la categoría" required>
             <mat-error *ngIf="recompensaForm.get('categoria')!.invalid && recompensaForm.get('categoria')!.touched">
-              La categoría debe tener máximo 30 caracteres y no puede contener números.
+              La categoría debe tener máximo 12 caracteres y no puede contener números.
             </mat-error>
           </mat-form-field>
 

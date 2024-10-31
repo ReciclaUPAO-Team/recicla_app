@@ -98,15 +98,15 @@ export class VerRecompensaComponent implements OnInit {
     Swal.fire({
       title: 'Editar Recompensa',
       html: `
-    <div class="swal2-label">Título</div>
-    <input id="titulo" class="swal2-input" placeholder="Título" value="${recompensa.titulo}">
+      <div class="swal2-label">Título</div>
+      <input id="titulo" class="swal2-input" placeholder="Título" value="${recompensa.titulo}">
 
-    <div class="swal2-label">Descripción</div>
-    <input id="descripcion" class="swal2-input" placeholder="Descripción" value="${recompensa.descripcion}">
+      <div class="swal2-label">Descripción</div>
+      <input id="descripcion" class="swal2-input" placeholder="Descripción" value="${recompensa.descripcion}">
 
-    <div class="swal2-label">Valor</div>
-    <input id="valor" type="number" class="swal2-input" placeholder="Valor" value="${recompensa.valor}">
-  `,
+      <div class="swal2-label">Valor</div>
+      <input id="valor" type="number" class="swal2-input" placeholder="Valor" value="${recompensa.valor}">
+    `,
       focusConfirm: false,
       showCancelButton: true,
       confirmButtonText: 'Aceptar',
@@ -134,8 +134,8 @@ export class VerRecompensaComponent implements OnInit {
           Swal.showValidationMessage('La descripción solo debe contener letras y espacios.');
           return false;
         }
-        if (descripcion.length > 50) {
-          Swal.showValidationMessage('La descripción no debe exceder los 50 caracteres.');
+        if (descripcion.length > 30) {
+          Swal.showValidationMessage('La descripción no debe exceder los 30 caracteres.');
           return false;
         }
         if (isNaN(Number(valor)) || Number(valor) <= 0) {

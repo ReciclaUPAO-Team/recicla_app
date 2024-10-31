@@ -21,8 +21,8 @@ export class RegistrarRecompensaComponent implements OnInit {
   ) {
     this.recompensaForm = this.fb.group({
       titulo: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(40)]],
-      descripcion: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(50)]],
-      categoria: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(30)]],
+      descripcion: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(30)]],
+      categoria: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/), Validators.maxLength(12)]],
       valor: ['', [Validators.required, Validators.min(1), Validators.pattern(/^[0-9]+$/)]]
     });
   }

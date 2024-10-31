@@ -91,12 +91,12 @@ export class VerResiduoComponent implements OnInit {
         const soloLetrasRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/;
 
         if (!nombre || !soloLetrasRegex.test(nombre) || nombre.length > 25) {
-          Swal.showValidationMessage('El nombre solo debe contener letras, sin números y máximo 50 caracteres.');
+          Swal.showValidationMessage('El nombre solo debe contener letras, sin números y máximo 25 caracteres.');
           return false;
         }
 
         if (!descripcion || !soloLetrasRegex.test(descripcion) || descripcion.length > 30) {
-          Swal.showValidationMessage('La descripción solo debe contener letras, sin números y máximo 40 caracteres.');
+          Swal.showValidationMessage('La descripción solo debe contener letras, sin números y máximo 30 caracteres.');
           return false;
         }
 
