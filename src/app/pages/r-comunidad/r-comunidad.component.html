@@ -1,6 +1,7 @@
 <div class="bootstrap-wrapper">
   <div class="container">
     <div class="row">
+<<<<<<< HEAD
       <div class="col-12">
         <h2 class="text-center mb-4">Comunidad</h2> 
       </div>
@@ -22,5 +23,25 @@
         </form>
       </div>
     </div>
+=======
+      <h2 class="text-center">Crear una comunidad</h2>
+      <form [formGroup]="comunidadForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Nombre de la Comunidad</mat-label>
+          <input matInput formControlName="nombre" placeholder="Ingrese el nombre de la comunidad">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput formControlName="descripcion" placeholder="Descripción de la comunidad"></textarea>
+        </mat-form-field>
+
+        <div class="text-center">
+          <button mat-raised-button color="primary" type="submit">Crear Comunidad</button>
+        </div>
+      </form>
+    </div>
+
+>>>>>>> ed7beadd7dba35d6bb6df6b21e9d3cf6b3fb9b56
   </div>
 </div>

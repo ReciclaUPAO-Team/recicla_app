@@ -1,59 +1,125 @@
-<div class="bootstrap-wrapper">
-  <div class="container">
-    <div class="row ">
-      <h2 class="text-center">Historial De Actividad Reciente</h2> 
-        <table mat-table [dataSource]="actividades" class="tabla">
+<div class="container">
+  <h2 class="text-center">Historial de Actividad</h2>
 
-          <!-- Columna Nombre -->
-          <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef> Nombre </th>
-            <td mat-cell *matCellDef="let actividad"> {{ actividad.nombre }} </td>
-          </ng-container>
-      
-          <!-- Columna Cantidad -->
-          <ng-container matColumnDef="cantidad">
-            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-            <td mat-cell *matCellDef="let actividad"> {{ actividad.cantidad }} </td>
-          </ng-container>
-      
-          <ng-container matColumnDef="residuo">
-            <th mat-header-cell *matHeaderCellDef> Residuo </th>
-            <td mat-cell *matCellDef="let actividad"> {{ actividad.residuoNombre }} </td>
-          </ng-container>
-      
-          <ng-container matColumnDef="puntosGanados">
-            <th mat-header-cell *matHeaderCellDef> Puntos Ganados </th>
-            <td mat-cell *matCellDef="let actividad"> {{ actividad.puntosGanados }} </td>
-          </ng-container>
-      
-          <ng-container matColumnDef="fecha">
-            <th mat-header-cell *matHeaderCellDef> Fecha </th>
-            <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
-          </ng-container>
-      
-          <ng-container matColumnDef="imagen">
-            <th mat-header-cell *matHeaderCellDef> Imagen </th>
-            <td mat-cell *matCellDef="let actividad">
-              <img [src]="'data:image/jpeg;base64,' + actividad.imagen" alt="Imagen de la actividad" class="actividad-imagen">
-            </td>
-          </ng-container>
-      
-          <!-- Columna Fecha (Formato de fecha) -->
-          <ng-container matColumnDef="compartir">
-            <th mat-header-cell *matHeaderCellDef> Compartir </th>
-            <td mat-cell *matCellDef="let actividad">
-              <button mat-icon-button (click)="mostrarQR(actividad.id)">
-                <i class="fa-solid fa-share"></i>
-              </button>
-            </td>
-          </ng-container>
-      
-          <!-- Encabezados de Columnas -->
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <!-- Filas de Datos -->
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
+  <div class="container-2">
+    <div *ngIf="actividades.data.length === 0" class="text-center no-actividades">
+      <p>Parece que todavía no has registrado una actividad, ¡comienza a reciclar para ganar puntos!</p>
+      <img src="/assets/símbolo-de-reciclaje.jpg" alt="simbolo" class="imagen-reciclaje">
     </div>
+
+  <!-- Filtros y opciones de exportación solo si hay actividades -->
+  <div *ngIf="actividades.data.length > 0">
+    <!-- Filtro desplegable -->
+    <div class="col-12 mb-3">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Filtrar historial
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="filter-container">
+          <!-- Campo de búsqueda para filtrar por nombre de actividad -->
+          <mat-form-field class="filter-item">
+            <mat-label>Buscar por Nombre de la Actividad</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar actividad">
+          </mat-form-field>
+
+          <!-- Desplegable para seleccionar el tipo de residuo -->
+          <mat-form-field class="filter-item">
+            <mat-label>Filtrar por Tipo de Residuo</mat-label>
+            <mat-select (selectionChange)="applyResiduoFilter($event)">
+              <mat-option value="">Todos</mat-option> <!-- Opción para mostrar todas las actividades -->
+              <mat-option *ngFor="let residuo of residuosDisponibles" [value]="residuo">
+                {{ residuo }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Desplegable para ordenar por cantidad de residuo -->
+          <mat-form-field class="filter-item">
+            <mat-label>Ordenar por Cantidad</mat-label>
+            <mat-select (selectionChange)="applyCantidadSort($event)">
+              <mat-option value="todos">Todos</mat-option> <!-- Opción para volver al estado original -->
+              <mat-option value="mayorMenor">Mayor a menor</mat-option>
+              <mat-option value="menorMayor">Menor a mayor</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </div>
+
+    <!-- Opciones de exportación -->
+    <div class="col-12 text-right mb-3">
+      <p><strong>Opciones de guardado:</strong></p> <!-- Texto de opciones de guardado -->
+      <button mat-raised-button (click)="exportarPDF()" class="btn-export pdf">
+        <i class="fa fa-file-pdf"></i> Exportar PDF
+      </button>
+      <button mat-raised-button (click)="exportarCSV()" class="btn-export csv">
+        <i class="fa fa-file-csv"></i> Exportar CSV
+      </button>
+    </div>
+
+
+
+  <!-- Tabla de actividades -->
+  <div class="col-12">
+    <table mat-table [dataSource]="actividades" class="tabla">
+
+      <!-- Columna Nombre -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let actividad"> {{ actividad.nombre }} </td>
+      </ng-container>
+
+      <!-- Columna Cantidad -->
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+        <td mat-cell *matCellDef="let actividad"> {{ actividad.cantidad }} </td>
+      </ng-container>
+
+      <!-- Columna Residuo -->
+      <ng-container matColumnDef="residuo">
+        <th mat-header-cell *matHeaderCellDef> Residuo </th>
+        <td mat-cell *matCellDef="let actividad"> {{ actividad.residuoNombre }} </td>
+      </ng-container>
+
+      <!-- Columna Puntos Ganados -->
+      <ng-container matColumnDef="puntosGanados">
+        <th mat-header-cell *matHeaderCellDef> Puntos Ganados </th>
+        <td mat-cell *matCellDef="let actividad"> {{ actividad.puntosGanados }} </td>
+      </ng-container>
+
+      <!-- Columna Fecha -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let actividad"> {{ actividad.fecha | date: 'medium' }} </td>
+      </ng-container>
+
+      <!-- Columna Imagen -->
+      <ng-container matColumnDef="imagen">
+        <th mat-header-cell *matHeaderCellDef> Imagen </th>
+        <td mat-cell *matCellDef="let actividad">
+          <img [src]="'data:image/jpeg;base64,' + actividad.imagen" alt="Imagen de la actividad" class="actividad-imagen">
+        </td>
+      </ng-container>
+
+      <!-- Columna Compartir -->
+      <ng-container matColumnDef="compartir">
+        <th mat-header-cell *matHeaderCellDef> Compartir </th>
+        <td mat-cell *matCellDef="let actividad">
+          <button mat-icon-button (click)="mostrarQR(actividad.id)">
+            <i class="fa-solid fa-share"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Encabezados de Columnas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <!-- Filas de Datos -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
   </div>
 </div>
+

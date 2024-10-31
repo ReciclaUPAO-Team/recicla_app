@@ -4,6 +4,13 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-top: 15px;
+  margin-bottom: 50px;
+  max-width: 95%; /* Limita el ancho máximo */
+  margin-left: auto;
+  margin-right: 50px; /* Centra el contenido horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Estilos para los campos de entrada */
@@ -24,6 +31,7 @@ button[type="reset"] {
   color: #FF6F61;
   margin-left: 60px;
 }
+
 /* Estilos para el campo de selección de archivos personalizado */
 .custom-file-upload {
   border: 2px dashed #49BFA7;
@@ -48,4 +56,29 @@ h2 {
   font-size: 24px;
   color: #096754;
 }
-  
+
+/* Media queries para pantallas más pequeñas o con escalas superiores */
+@media (max-width: 1200px) {
+  .mat-form-field {
+    width: 90%; /* Se ajusta el tamaño de los inputs */
+  }
+
+  button[type="reset"] {
+    margin-left: 30px; /* Reduce la separación entre botones */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* El contenedor ocupa todo el ancho en pantallas pequeñas */
+    padding: 15px; /* Ajusta el padding */
+  }
+
+  button[type="reset"] {
+    margin-left: 20px; /* Aún más pequeño en pantallas pequeñas */
+  }
+
+  .custom-file-upload {
+    padding: 10px; /* Reduce el padding en pantallas más pequeñas */
+  }
+}

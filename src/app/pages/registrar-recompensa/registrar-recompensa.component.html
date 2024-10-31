@@ -9,33 +9,49 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Titulo</mat-label>
             <input type="text" matInput formControlName="titulo" placeholder="Ingrese el título" required>
+            <mat-error *ngIf="recompensaForm.get('titulo')!.invalid && recompensaForm.get('titulo')!.touched">
+              El título debe tener máximo 40 caracteres y no puede contener números.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Descripción</mat-label>
             <textarea matInput formControlName="descripcion" placeholder="Ingrese la descripción" required></textarea>
+            <mat-error *ngIf="recompensaForm.get('descripcion')!.invalid && recompensaForm.get('descripcion')!.touched">
+              La descripción debe tener máximo 50 caracteres y no puede contener números.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Categoría</mat-label>
             <input matInput formControlName="categoria" placeholder="Ingrese la categoría" required>
+            <mat-error *ngIf="recompensaForm.get('categoria')!.invalid && recompensaForm.get('categoria')!.touched">
+              La categoría debe tener máximo 30 caracteres y no puede contener números.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Valor</mat-label>
             <input type="number" matInput formControlName="valor" placeholder="Ingrese el valor" required>
+            <mat-error *ngIf="recompensaForm.get('valor')!.invalid && recompensaForm.get('valor')!.touched">
+              El valor debe ser un número mayor que 0.
+            </mat-error>
           </mat-form-field>
 
           <div class="full-width mb-3">
             <label class="custom-file-upload">
-              <input type="file" (change)="onFileSelected($event) " style="display: none;">
+              <input type="file" (change)="onFileSelected($event)" style="display: none;">
               <i class="fa fa-cloud-upload"></i> SUBIR FOTO DE LA RECOMPENSA
+              <i *ngIf="imagenArchivo" class="fa fa-check-circle" style="color: green;"></i> <!-- Icono de check -->
             </label>
+            <mat-error *ngIf="!imagenArchivo && imageTouched">
+              Debes subir una imagen.
+            </mat-error>
           </div>
 
           <div class="container-box text-center">
             <button type="submit" mat-raised-button color="primary">Registrar</button>
-            <button type="reset"  mat-raised-button color="accent">Limpiar</button>
+            <button type="reset" mat-raised-button color="accent" (click)="onReset()">Limpiar</button> <!-- Botón reset actualizado -->
           </div>
         </form>
       </div>

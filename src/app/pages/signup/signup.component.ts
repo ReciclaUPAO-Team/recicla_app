@@ -70,7 +70,7 @@ export class SignupComponent implements OnInit {
         }
       
         this.snack.open(errorMessage, 'Aceptar', {
-          duration: 4000 // Duración de 4 segundos
+          duration: 6000 // Duración de 4 segundos
         });
       }
       

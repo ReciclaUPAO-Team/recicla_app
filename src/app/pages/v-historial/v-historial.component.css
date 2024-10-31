@@ -2,46 +2,139 @@
   background-color: #ffffffda;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 10px;
   margin-top: 15px;
+  margin-bottom: 50px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  max-width: 95%; /* Limita el ancho máximo */
+  margin-left: auto;
+  margin-right: 50px; /* Centra el contenido horizontalmente */
+}
+.imagen-reciclaje {
+  width: 150px; /* Ancho ajustado */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 20px; /* Espacio superior */
 }
 
 
+.btn-export {
+  margin-left: 10px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 2px solid; /* Añadir borde personalizado */
+}
+
+/* Estilos para el botón de exportación a PDF */
+.btn-export.pdf {
+  border-color: #ff0000; /* Borde rojo */
+  color: #ff0000; /* Texto rojo */
+  background-color: #ffffff; /* Fondo blanco */
+}
+
+.btn-export.pdf i {
+  color: #ff0000; /* Icono rojo */
+}
+
+/* Estilos para el botón de exportación a CSV */
+.btn-export.csv {
+  border-color: #007BFF; /* Borde azul */
+  color: #007BFF; /* Texto azul */
+  background-color: #ffffff; /* Fondo blanco */
+}
+
+.btn-export.csv i {
+  color: #007BFF; /* Icono azul */
+}
+
+/* Efectos hover para el botón PDF */
+.btn-export.pdf:hover {
+  background-color: #ff0000; /* Fondo rojo al hacer hover */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-export.pdf:hover i {
+  color: #ffffff; /* Icono blanco en hover */
+}
+
+/* Efectos hover para el botón CSV */
+.btn-export.csv:hover {
+  background-color: #007BFF; /* Fondo azul al hacer hover */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-export.csv:hover i {
+  color: #ffffff; /* Icono blanco en hover */
+}
 
 h2 {
   font-size: 24px;
   color: #096754;
 }
 
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px; /* Añade espacio entre los filtros */
+}
+
+.filter-item {
+  flex: 1 1 30%; /* Los elementos del filtro ocupan un 30% y se ajustan */
+  min-width: 200px; /* Asegura un tamaño mínimo */
+  margin-bottom: 15px;
+}
+
+.mat-expansion-panel {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
 .actividad-imagen {
   width: 100px;
-  /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
   height: 100px;
-  /* Altura fija para todas las imágenes */
   margin: 5px;
   object-fit: cover;
-  /* Escala la imagen para cubrir el área sin perder sus proporciones */
-
   border-radius: 50%;
 }
 
-.tabla{
+.tabla {
   background-color: rgba(0, 0, 0, 0);
+  width: 100%;
 }
 
-th{
-  color: #096754;
+th, td {
   text-align: center;
-  justify-content: center;
-  font-weight: bold;
+}
 
-}
-td{
-  text-align: center;
-}
-i{
+i {
   color: #096754;
+}
+
+/* Media queries para pantallas más pequeñas o con escalas superiores */
+@media (max-width: 1200px) {
+  .filter-item {
+    flex: 1 1 45%; /* Los filtros se hacen más grandes en pantallas más pequeñas */
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-item {
+    width: 100%; /* Los filtros ocupan todo el ancho en pantallas pequeñas */
+  }
+
+  .container {
+    max-width: 100%; /* El contenedor ocupa todo el ancho */
+  }
 }
