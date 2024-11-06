@@ -23,7 +23,7 @@ export class RResiduoComponent implements OnInit {
         Validators.required,
         // Solo letras y espacios
         Validators.pattern(/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$/),
-        Validators.maxLength(30)  // Máximo 40 caracteres
+        Validators.maxLength(30)  // Máximo 30 caracteres
       ]),
 
       tipo: new FormControl('', [Validators.required]),
